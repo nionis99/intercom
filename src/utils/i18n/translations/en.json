@@ -2,6 +2,12 @@
   "translation": {
     "login_google": "Login with Google",
     "login_facebook": "Login with Facebook",
-    "OR": "OR"
+    "OR": "OR",
+    "username": "Username",
+    "password": "Password",
+    "name_required_error": "Username is required",
+    "password_required_error": "Password is required",
+    "login": "Login",
+    "signed_in_as" : "Signed in as"
   }
 }

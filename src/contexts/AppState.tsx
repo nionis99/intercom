@@ -11,7 +11,7 @@ interface StateContextType {
   setAccessToken: React.Dispatch<SetStateAction<string | null>>;
 }
 
-export const StateContext = createContext<StateContextType>(null!);
+export const StateContext = createContext<StateContextType | null>(null);
 
 interface Props {
   children: React.ReactNode;

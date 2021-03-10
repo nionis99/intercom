@@ -1,12 +1,12 @@
 import { initReactI18next } from 'react-i18next';
-import i18n from 'i18next';
+import i18n, { ResourceLanguage } from 'i18next';
 import Constants from 'Constants';
 
 import en from './translations/en.json';
 import lt from './translations/lt.json';
 import ru from './translations/ru.json';
 
-type Translations = { [key: string]: any };
+type Translations = { [key: string]: ResourceLanguage };
 const translations: Translations = { en, lt, ru };
 
 const availableLanguages = Object.keys(translations);

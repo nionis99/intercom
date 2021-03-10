@@ -12,8 +12,8 @@ export interface LoginFormInputs {
 }
 
 const loginSchema = yup.object().shape({
-  username: yup.string().required(),
-  password: yup.string().required(),
+  username: yup.string().required('name_required_error'),
+  password: yup.string().required('password_required_error'),
 });
 
 interface Props {
@@ -34,7 +34,7 @@ const LoginForm = ({ handleLoginSubmit }: Props) => {
     <div className="mx-4 login">
       <Form noValidate onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
-          <Form.Label className={errors.username ? 'text-danger' : 'text-black'}>Username</Form.Label>
+          <Form.Label className={errors.username ? 'text-danger' : 'text-black'}>{t('username')}</Form.Label>
           <Form.Control ref={register} name="username" type="text" defaultValue="" isInvalid={!!errors.username} />
           {errors.username && (
             <Form.Control.Feedback type="invalid">
@@ -43,7 +43,7 @@ const LoginForm = ({ handleLoginSubmit }: Props) => {
           )}
         </Form.Group>
         <Form.Group>
-          <Form.Label className={errors.password ? 'text-danger' : 'text-black'}>Password</Form.Label>
+          <Form.Label className={errors.password ? 'text-danger' : 'text-black'}>{t('password')}</Form.Label>
           <Form.Control ref={register} name="password" type="password" defaultValue="" isInvalid={!!errors.password} />
           {errors.password && (
             <Form.Control.Feedback type="invalid">
@@ -52,7 +52,7 @@ const LoginForm = ({ handleLoginSubmit }: Props) => {
           )}
         </Form.Group>
         <Button type="submit" className="w-100 my-2">
-          {t('Login')}
+          {t('login')}
         </Button>
       </Form>
     </div>

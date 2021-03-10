@@ -10,7 +10,7 @@ const SocialLoginButtons = () => {
     console.log(userInfo);
   };
 
-  const googleResponse = (response: any) => {
+  const googleResponse = (response: unknown) => {
     console.log(response);
   };
 
@@ -21,7 +21,7 @@ const SocialLoginButtons = () => {
         clientId=""
         onSuccess={googleResponse}
         onFailure={googleResponse}
-        className="login-btn justify-content-center my-2 font-weight-bold"
+        className="login-btn justify-content-center my-2 font-weight-bold btn-sm"
         buttonText={t('login_google')}
       />
       <FacebookLogin
@@ -30,7 +30,7 @@ const SocialLoginButtons = () => {
         callback={facebookResponse}
         onFailure={facebookResponse}
         size="small"
-        cssClass="fb login w-100"
+        cssClass="fb login w-100 justify-content-center"
         textButton={t('login_facebook')}
       />
     </div>
