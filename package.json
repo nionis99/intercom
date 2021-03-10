@@ -56,6 +56,8 @@
   },
   "devDependencies": {
     "@sentry/react": "^6.2.1",
-    "@sentry/tracing": "^6.2.1"
+    "@sentry/tracing": "^6.2.1",
+    "eslint": "^7.21.0",
+    "prettier": "^2.2.1"
   }
 }
