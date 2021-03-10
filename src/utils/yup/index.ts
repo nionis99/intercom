@@ -2,4 +2,4 @@ import * as yup from 'yup';
 
 // YUP validation methods
 
-export default yup
+export default yup;

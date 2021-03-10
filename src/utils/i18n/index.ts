@@ -15,12 +15,12 @@ let lng = localStorage.getItem('lng');
 if (!lng || !translations.hasOwnProperty(lng)) lng = Constants.DEFAULT_LANGUAGE;
 
 i18n.use(initReactI18next).init({
-    resources: translations,
-    lng,
-    keySeparator: false,
-    interpolation: {
-        escapeValue: false,
-    },
+  resources: translations,
+  lng,
+  keySeparator: false,
+  interpolation: {
+    escapeValue: false,
+  },
 });
 
 export { translations, availableLanguages };
