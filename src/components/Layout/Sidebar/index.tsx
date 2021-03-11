@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <div className={`border-right border-light-99 bg-light content`}>
       <Container className="d-flex flex-column align-items-center justify-content-center py-4 border-bottom">
-        <Location size={24} className="mr-2 text-primary" />
+        <Location size={24} className="text-primary" />
         <h6 className="mt-2">Fake Address, 333-N</h6>
         <h6>Ivan</h6>
       </Container>
