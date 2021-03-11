@@ -8,6 +8,7 @@
     "name_required_error": "Vartotojo vardas privalomas",
     "password_required_error": "Slaptažodis privalomas",
     "login": "Prisijungti",
-    "signed_in_as" : "Prisijungęs"
+    "profile": "Profilis",
+    "members" : "Nariai"
   }
 }

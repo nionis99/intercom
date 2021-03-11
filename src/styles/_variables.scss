@@ -1,0 +1,55 @@
+$primaryColor: #1c9cc4;
+
+// Bootstrap override
+$navbar-light-active-color: $primaryColor;
+$navbar-light-hover-color: $primaryColor;
+$navbar-light-color: #aab0b7;
+//controls
+$controlHovered: lightgrey;
+$controlDisabled: grey;
+// Colors
+$theme-colors: (
+        'primary': $primaryColor,
+        'success': $primaryColor,
+        'danger': #ff0000,
+        'lightgrey': rgba(0, 0, 0, 0.075)
+);
+$whiteColor: #fff;
+$primaryPressedBg: #8ed1b5;
+$secondaryBg: #f8941c;
+$secondaryColor: $whiteColor;
+
+$containerWidth: 1200px;
+$containerPadding: 10px;
+
+$weightRegular: 400;
+$weightMedium: 500;
+$weightBold: 600;
+
+$border-radius-sm: 2px;
+$border-radius: 2px;
+$border-radius-lg: 2px;
+$borderColor: #ebebeb;
+
+$colorBrand: $primaryColor;
+$colorLight: rgba(0, 0, 0, 0.07);
+$colorDark: rgba(168, 168, 168, 0.664);
+$colorBlack: #000000;
+$colorRed: #ff0000;
+$colorDarkTransparent: #192124af;
+$themeColor: #ffffff00;
+$themeDarkColor: #272727bd;
+
+$navigation-width: 70px;
+$sidebar-width: 300px;
+$sidebar-participants-width: 180px;
+$sidebar-mobile-height: 90px;
+
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+$btn-active-box-shadow: none;
+$input-btn-focus-box-shadow: none;
+$font-family-poppins: 'Poppins', sans-serif;
+$font-family-base: $font-family-poppins;
+$font-family-default : $font-family-poppins;
+

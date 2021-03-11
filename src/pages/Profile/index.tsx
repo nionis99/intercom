@@ -1,5 +1,8 @@
+import React from 'react';
+import LayoutContainer from 'components/Layout';
+
 const ProfilePage = () => {
-  return <div>Profile</div>;
+  return <LayoutContainer>Test Profile</LayoutContainer>;
 };
 
 export default ProfilePage;

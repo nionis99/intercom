@@ -1,0 +1,31 @@
+@import 'src/styles/variables';
+
+
+.sidebar{
+  min-height: 80%;
+}
+
+.link {
+  text-decoration: none;
+  color: $colorBlack;
+  display: flex;
+  width: 100%;
+  align-content: center;
+  justify-content: space-between;
+  transition: all 0.1s ease-in-out;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: transparent;
+  background-color: #f8f9fa;
+
+  &:hover {
+    text-decoration: none;
+    color: $colorBlack;
+    background-color: $whiteColor;
+  }
+}
+
+.selected {
+  border-left-color: $colorBrand;
+  background-color: $whiteColor;
+}

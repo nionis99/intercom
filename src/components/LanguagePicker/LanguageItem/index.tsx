@@ -10,19 +10,18 @@ const shortNames = Object.keys(languages);
 
 interface Props {
   shortName: string;
-  className?: string;
 }
 
-const LanguageItem = ({ shortName, className = '' }: Props) => {
+const LanguageItem = ({ shortName }: Props) => {
   const getLanguageName = (shortName: string) => {
     if (shortNames.includes(shortName)) return languages[shortName];
     return '';
   };
 
   return (
-    <div className="d-inline-flex justify-content-center align-items-center">
-      <img className=" lang-item" src={`/images/flags/${shortName}.png`} alt={shortName} width="20" height="20" />
-      <span className={`${className} ml-2`}>{getLanguageName(shortName)}</span>
+    <div className="d-flex w-100">
+      <img className="lang-item" src={`/images/flags/${shortName}.png`} alt={shortName} width="20" height="20" />
+      <span className="color-black ml-2">{getLanguageName(shortName)}</span>
     </div>
   );
 };

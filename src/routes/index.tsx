@@ -4,14 +4,22 @@ import { Switch } from 'react-router-dom';
 import UnauthorizedRoute from 'routes/Unauthorized';
 import AuthorizedRoute from './Authorized';
 import LoginPage from 'pages/Login';
-import Dashboard from 'pages/Dashboard';
+import DashboardPage from 'pages/Dashboard';
+import ProfilePage from 'pages/Profile';
+import MembersPage from 'pages/Members';
 
 const Routes = () => (
   <div className="d-flex flex-column flex-md-row full-height">
     <div className="order-md-2 order-1 w-100 h-100 overflow-auto">
       <Switch>
         <AuthorizedRoute exact path="/">
-          <Dashboard />
+          <DashboardPage />
+        </AuthorizedRoute>
+        <AuthorizedRoute exact path="/profile">
+          <ProfilePage />
+        </AuthorizedRoute>
+        <AuthorizedRoute exact path="/members">
+          <MembersPage />
         </AuthorizedRoute>
         <UnauthorizedRoute path="/login">
           <LoginPage />

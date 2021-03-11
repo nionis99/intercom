@@ -1,9 +1,11 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from 'react-router-dom';
 import { useAppState } from 'contexts/AppState';
 import { useTranslation } from 'react-i18next';
-import { Container, Nav } from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { Logout } from 'styled-icons/material-rounded';
+import { AccountCircle } from 'styled-icons/material-rounded';
 import LanguageSelect from 'components/LanguagePicker';
 
 const LayoutHeader = () => {
@@ -12,31 +14,33 @@ const LayoutHeader = () => {
 
   return (
     <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
-      <Container fluid>
-        <Navbar.Brand as={NavLink} to="/">
-          <img alt="NTT" src="/images/logo.png" width="100" height="46" className="d-inline-block align-top" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end text-center">
-          <Nav className="ml-auto">
+      <Navbar.Brand as={NavLink} to="/">
+        <img alt="NTT" src="/images/logo.png" width="100" height="46" className="d-inline-block align-top" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end text-center">
+        <Nav className="ml-md-auto">
+          <Navbar.Text className="d-flex justify-content-center align-items-center ml-md-3">
             <LanguageSelect />
-            <Navbar.Text className="ml-md-4">
-              {t('signed_in_as')} :
-              <NavLink to="/profile" className="ml-2 text-decoration-none">
-                {accessToken}
-              </NavLink>
-            </Navbar.Text>
-            {!!accessToken && (
-              <Navbar.Text
+          </Navbar.Text>
+          <Navbar.Text className="d-flex align-items-center justify-content-center ml-md-3">
+            <NavLink to="/profile" className="d-flex align-items-center justify-content-center text-decoration-none">
+              <AccountCircle size={30} className="mr-2" />
+            </NavLink>
+          </Navbar.Text>
+          {!!accessToken && (
+            <Navbar.Text className="d-flex align-items-center justify-content-center ml-md-3">
+              <Logout
                 onClick={() => setAccessToken(null)}
-                className="ml-md-5 text-decoration-none text-danger cursor-pointer"
+                size={30}
+                className="text-decoration-none text-danger cursor-pointer"
               >
-                Logout
-              </Navbar.Text>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+                {t('logout')}
+              </Logout>
+            </Navbar.Text>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 };

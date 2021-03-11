@@ -8,6 +8,7 @@
     "name_required_error": "Username is required",
     "password_required_error": "Password is required",
     "login": "Login",
-    "signed_in_as" : "Signed in as"
+    "profile": "Profile",
+    "members" : "Members"
   }
 }

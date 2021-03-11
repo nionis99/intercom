@@ -1,3 +1,5 @@
+$headerHeight: 72px;
+
 .full-height {
   height: calc(var(--vh, 1vh) * 100);
 }
@@ -8,11 +10,16 @@
 }
 
 .lang-position {
-  right:5rem;
-  top:2rem;
-  color: #000000;
+  right:.5rem;
+  top:.5rem;
+  color: #000;
+  z-index:2;
 }
 
 .cursor-pointer {
   cursor:pointer;
+}
+
+.content {
+  min-height: calc(100vh - #{$headerHeight});
 }

@@ -1,8 +1,8 @@
 import React from 'react';
-import LayoutHeader from 'components/Layout/Header';
+import LayoutContainer from 'components/Layout';
 
-const Dashboard = () => {
-  return <LayoutHeader />;
+const DashboardPage = () => {
+  return <LayoutContainer>Test dashboard</LayoutContainer>;
 };
 
-export default Dashboard;
+export default DashboardPage;

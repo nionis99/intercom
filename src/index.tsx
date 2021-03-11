@@ -4,11 +4,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 reportWebVitals(); //Pass console.log for info

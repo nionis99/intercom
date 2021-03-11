@@ -6,6 +6,7 @@ hr.hr-text {
   height: 1px;
   background: #999;
 }
+
 hr.hr-text::before {
   content: attr(data-content);
   display: inline-block;
