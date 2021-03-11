@@ -7,6 +7,7 @@ import LoginPage from 'pages/Login';
 import DashboardPage from 'pages/Dashboard';
 import ProfilePage from 'pages/Profile';
 import MembersPage from 'pages/Members';
+import EquipmentPage from 'pages/Equipment';
 
 const Routes = () => (
   <div className="d-flex flex-column flex-md-row full-height">
@@ -20,6 +21,9 @@ const Routes = () => (
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/members">
           <MembersPage />
+        </AuthorizedRoute>
+        <AuthorizedRoute exact path="/equipment">
+          <EquipmentPage />
         </AuthorizedRoute>
         <UnauthorizedRoute path="/login">
           <LoginPage />

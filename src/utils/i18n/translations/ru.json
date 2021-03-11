@@ -9,6 +9,17 @@
     "password_required_error": "Password is required",
     "login": "Login",
     "profile": "Profile",
-    "members" : "Members"
+    "members" : "Members",
+    "equipment": "Equipment",
+    "email": "E-mail",
+    "telephone": "Phone number",
+    "pin": "My PIN",
+    "family_members": "Family members",
+    "my_cards": "My cards",
+    "my_privileges": "My privileges",
+    "change_pin": "Change PIN code",
+    "add_cards": "Add cards",
+    "change_contacts": "Change contacts",
+    "change_password": "Change password"
   }
 }

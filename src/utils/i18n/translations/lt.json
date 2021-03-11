@@ -9,6 +9,17 @@
     "password_required_error": "Slaptažodis privalomas",
     "login": "Prisijungti",
     "profile": "Profilis",
-    "members" : "Nariai"
+    "members" : "Nariai",
+    "equipment": "Įranga",
+    "email": "El. paštas",
+    "telephone": "Tel. numeris",
+    "pin": "Mano PIN",
+    "family_members": "Šeimos nariai",
+    "my_cards": "Mano kortelės",
+    "my_privileges": "Mano durų teisės",
+    "change_pin": "Keisti PIN kodą",
+    "add_cards": "Pridėti kortelių",
+    "change_contacts": "Keisti kontaktus",
+    "change_password": "Keisti slaptažodį"
   }
 }
