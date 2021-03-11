@@ -33,6 +33,13 @@
     "type": "Tipas",
     "delete_card": "Ištrinti šią kortelę?",
     "delete": "Ištrinti",
-    "cancel" : "Atšaukti"
+    "cancel" : "Atšaukti",
+    "no_equipments": "Nėra įrangos",
+    "no_members" : "Nėra narių",
+    "create" : "Sukurti",
+    "create_card" : "Sukurti kortelę",
+    "edit_card" : "Redaguoti kortelę",
+    "required_card_id" : "Kortelės ID privalomas",
+    "required_code" : "Kodas privalomas"
   }
 }

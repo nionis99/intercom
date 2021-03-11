@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Logout } from 'styled-icons/material-rounded';
 import { AccountCircle } from 'styled-icons/material-rounded';
-import LanguageSelect from 'components/LanguagePicker';
+import LanguageSelect from 'components/Buttons/LanguagePicker';
 
 const LayoutHeader = () => {
   const { t } = useTranslation();

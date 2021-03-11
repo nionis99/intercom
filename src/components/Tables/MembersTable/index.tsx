@@ -1,35 +1,40 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CircleFill } from '@styled-icons/bootstrap';
-import { Edit, Trash } from '@styled-icons/fa-solid';
 import Table from 'react-bootstrap/Table';
 import LoadingView from 'components/Loading';
 import EmptyDataView from 'components/EmptyDataView';
-import DeleteConfirmation from '../../Modals/Confirmation/Delete';
+import DeleteConfirmation from 'components/Modals/Confirmation/Delete';
+import CreateCardModal from 'components/Modals/CreateCard';
+import EditCardModal from 'components/Modals/EditCard';
+import MemberItem from './MemberItem';
+import { Member } from 'types';
 
-const fakeData = [
-  { cardId: 112312, code: 333, status: true },
-  { cardId: 241231, code: 432, status: true },
-  { cardId: 312312, code: 666, status: true },
-  { cardId: 441221, code: 999, status: false },
-  { cardId: 441444, code: 999, status: false },
-  { cardId: 445123, code: 999, status: false },
-  { cardId: 441343, code: 999, status: false },
-  { cardId: 441666, code: 999, status: true },
-  { cardId: 441712, code: 999, status: false },
-  { cardId: 441292, code: 999, status: false },
-  { cardId: 441281, code: 999, status: true },
-  { cardId: 441243, code: 999, status: false },
-  { cardId: 441211, code: 999, status: false },
+const fakeData: Member[] = [
+  { cardId: '112312', code: '333', status: true },
+  { cardId: '241231', code: '432', status: true },
+  { cardId: '312312', code: '666', status: true },
+  { cardId: '441221', code: '999', status: false },
+  { cardId: '441444', code: '999', status: false },
+  { cardId: '445123', code: '999', status: false },
+  { cardId: '441343', code: '999', status: false },
+  { cardId: '441666', code: '999', status: true },
+  { cardId: '441712', code: '999', status: false },
+  { cardId: '441292', code: '999', status: false },
+  { cardId: '441281', code: '999', status: true },
+  { cardId: '441243', code: '999', status: false },
+  { cardId: '441211', code: '999', status: false },
 ];
 
 interface Props {
   loading: boolean;
+  isOpenCreateCardModal: boolean;
+  setIsOpenCreateCardModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const MembersListTable = ({ loading }: Props) => {
+const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardModal }: Props) => {
   const { t } = useTranslation();
-  const [deletingCardId, setDeletingCardId] = useState<number | null>(null);
+  const [deletingCardId, setDeletingCardId] = useState<string | null>(null);
+  const [editingCard, setEditingCard] = useState<Member | null>(null);
 
   if (loading) return <LoadingView />;
 
@@ -39,12 +44,8 @@ const MembersListTable = ({ loading }: Props) => {
 
   return (
     <>
-      {!!deletingCardId && (
-        <DeleteConfirmation
-          title={t('delete_card')}
-          confirmText={t('delete')}
-          handleClose={() => setDeletingCardId(null)}
-        />
+      {isOpenCreateCardModal && (
+        <CreateCardModal show={isOpenCreateCardModal} handleClose={() => setIsOpenCreateCardModal(false)} />
       )}
       <Table borderless hover responsive="sm">
         <thead>
@@ -56,23 +57,26 @@ const MembersListTable = ({ loading }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {fakeData.map((data) => (
-            <tr key={data.cardId} className="text-center font-weight-light">
-              <td>{data.cardId}</td>
-              <td>{data.code}</td>
-              <td>{<CircleFill color={data.status ? 'green' : 'red'} size={20} />}</td>
-              <td className="d-flex align-items-center justify-content-center">
-                <Edit size={22} className="text-primary cursor-pointer mr-2" />
-                <Trash
-                  size={20}
-                  className="text-danger cursor-pointer"
-                  onClick={() => setDeletingCardId(data.cardId)}
-                />
-              </td>
-            </tr>
+          {fakeData.map((member) => (
+            <MemberItem
+              key={member.cardId}
+              member={member}
+              setDeletingCardId={setDeletingCardId}
+              setEditingCard={setEditingCard}
+            />
           ))}
         </tbody>
       </Table>
+      {!!editingCard && (
+        <EditCardModal show={!!editingCard} editingCard={editingCard} handleClose={() => setEditingCard(null)} />
+      )}
+      {!!deletingCardId && (
+        <DeleteConfirmation
+          title={t('delete_card')}
+          confirmText={t('delete')}
+          handleClose={() => setDeletingCardId(null)}
+        />
+      )}
     </>
   );
 };

@@ -3,9 +3,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { useAppState } from 'contexts/AppState';
-import LoginForm, { LoginFormInputs } from 'components/LoginForm';
-import SocialLoginButtons from 'components/SocialLoginButtons';
-import LanguageSelect from 'components/LanguagePicker';
+import LoginForm, { LoginFormInputs } from 'components/Forms/LoginForm';
+import SocialLoginButtons from 'components/Buttons/SocialLoginButtons';
+import LanguageSelect from 'components/Buttons/LanguagePicker';
 
 const LoginPage = () => {
   const { setAccessToken } = useAppState();

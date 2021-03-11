@@ -1,3 +1,19 @@
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.switch-toggle {
+  @include no-select;
+
+  .custom-control-label {
+    cursor: pointer !important;
+  }
+}
+
 $min-width: 18rem;
 
 hr.hr-text {

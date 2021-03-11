@@ -9,7 +9,7 @@ import yup from 'utils/yup';
 interface Props {
   closeModal: () => void;
 
-  onSubmit(data: FeedbackInputs): Promise<any>;
+  onSubmit(data: FeedbackInputs): Promise<void>;
 }
 
 export interface FeedbackInputs {

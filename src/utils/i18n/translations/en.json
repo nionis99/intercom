@@ -33,6 +33,13 @@
     "type": "Type",
     "delete_card": "Delete current card?",
     "delete": "Delete",
-    "cancel" : "Cancel"
+    "cancel" : "Cancel",
+    "no_equipments": "No equipment",
+    "no_members" : "No members",
+    "create" : "Create",
+    "create_card" : "Create card",
+    "edit_card" : "Edit card",
+    "required_card_id" : "Card ID is required",
+    "required_code" : "Code is required"
   }
 }
