@@ -40,6 +40,7 @@
     "create_card" : "Sukurti kortelę",
     "edit_card" : "Redaguoti kortelę",
     "required_card_id" : "Kortelės ID privalomas",
-    "required_code" : "Kodas privalomas"
+    "required_code" : "Kodas privalomas",
+    "edit": "Redaguoti"
   }
 }
