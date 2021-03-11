@@ -3,8 +3,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import { useAppState } from 'contexts/AppState';
-import SocialLoginButtons from 'components/SocialLoginButtons';
 import LoginForm, { LoginFormInputs } from 'components/LoginForm';
+import SocialLoginButtons from 'components/SocialLoginButtons';
 import LanguageSelect from 'components/LanguagePicker';
 
 const LoginPage = () => {

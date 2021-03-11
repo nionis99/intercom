@@ -8,6 +8,7 @@
     "name_required_error": "Username is required",
     "password_required_error": "Password is required",
     "login": "Login",
+    "welcome": "Welcome to <0>smart</0> intercoms self-service",
     "profile": "Profile",
     "members": "Members",
     "equipment": "Equipment",
@@ -26,6 +27,12 @@
     "code": "Code",
     "status": "Status",
     "actions": "Actions",
-    "add_new_card" : "Add new card"
+    "add_new_card" : "Add new card",
+    "title": "Title",
+    "model": "Model",
+    "type": "Type",
+    "delete_card": "Delete current card?",
+    "delete": "Delete",
+    "cancel" : "Cancel"
   }
 }

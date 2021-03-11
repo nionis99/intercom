@@ -8,6 +8,7 @@
     "name_required_error": "Vartotojo vardas privalomas",
     "password_required_error": "Slaptažodis privalomas",
     "login": "Prisijungti",
+    "welcome": "Sveiki atvykę į <0>išmaniųjų</0> domofonų savitarną",
     "profile": "Profilis",
     "members" : "Nariai",
     "equipment": "Įranga",
@@ -24,8 +25,14 @@
     "assigned_cards" : "Priskirtos kortelės",
     "card_id": "Kortelės ID",
     "code": "Kodas",
-    "status": "Statusas",
+    "status": "Būsena",
     "actions": "Veiksmai",
-    "add_new_card" : "Pridėti naują kortelę"
+    "add_new_card" : "Pridėti naują kortelę",
+    "title": "Pavadinimas",
+    "model": "Modelis",
+    "type": "Tipas",
+    "delete_card": "Ištrinti šią kortelę?",
+    "delete": "Ištrinti",
+    "cancel" : "Atšaukti"
   }
 }
