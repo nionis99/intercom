@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/react';
 import 'utils/i18n';
 
 import AppStateProvider from 'contexts/AppState';
+import ErrorBoundary from 'components/ErrorBoundary';
 
 const history = createBrowserHistory();
 
@@ -28,11 +29,13 @@ if (process.env.REACT_APP_SENTRY_DSN) {
 
 const App = () => {
   return (
-    <AppStateProvider>
-      <Router history={history}>
-        <Routes />
-      </Router>
-    </AppStateProvider>
+    <ErrorBoundary>
+      <AppStateProvider>
+        <Router history={history}>
+          <Routes />
+        </Router>
+      </AppStateProvider>
+    </ErrorBoundary>
   );
 };
 
