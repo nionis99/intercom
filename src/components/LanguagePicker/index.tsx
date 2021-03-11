@@ -20,7 +20,7 @@ const LanguageSelect = ({ floating = false }: Props) => {
 
   return (
     <Dropdown
-      className={`${floating ? 'position-absolute lang-position' : 'd-flex flex-column w-100 align-items-center'} `}
+      className={`${floating ? 'position-absolute lang-position' : 'w-100'} d-flex flex-column justify-content-center`}
       alignRight
     >
       <Dropdown.Toggle

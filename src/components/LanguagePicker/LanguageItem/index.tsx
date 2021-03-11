@@ -19,7 +19,7 @@ const LanguageItem = ({ shortName }: Props) => {
   };
 
   return (
-    <div className="d-flex w-100">
+    <div className="d-flex w-100 align-items-center justify-content-lg-start justify-content-center">
       <img className="lang-item" src={`/images/flags/${shortName}.png`} alt={shortName} width="20" height="20" />
       <span className="color-black ml-2">{getLanguageName(shortName)}</span>
     </div>
