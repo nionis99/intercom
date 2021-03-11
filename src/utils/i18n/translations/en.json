@@ -20,6 +20,12 @@
     "change_pin": "Change PIN code",
     "add_cards": "Add cards",
     "change_contacts": "Change contacts",
-    "change_password": "Change password"
+    "change_password": "Change password",
+    "assigned_cards" : "Assigned cards",
+    "card_id": "Card ID",
+    "code": "Code",
+    "status": "Status",
+    "actions": "Actions",
+    "add_new_card" : "Add new card"
   }
 }

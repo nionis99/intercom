@@ -20,6 +20,12 @@
     "change_pin": "Keisti PIN kodą",
     "add_cards": "Pridėti kortelių",
     "change_contacts": "Keisti kontaktus",
-    "change_password": "Keisti slaptažodį"
+    "change_password": "Keisti slaptažodį",
+    "assigned_cards" : "Priskirtos kortelės",
+    "card_id": "Kortelės ID",
+    "code": "Kodas",
+    "status": "Statusas",
+    "actions": "Veiksmai",
+    "add_new_card" : "Pridėti naują kortelę"
   }
 }

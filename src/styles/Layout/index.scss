@@ -24,3 +24,7 @@ $headerHeight: 72px;
   height: calc(100vh - #{$headerHeight});
   min-height: calc(100vh - #{$headerHeight});
 }
+
+button:focus {
+  box-shadow: none !important;
+}

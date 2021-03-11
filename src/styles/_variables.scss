@@ -1,4 +1,5 @@
 $primaryColor: #1c9cc4;
+$secondaryColor: #f8941c;
 
 // Bootstrap override
 $navbar-light-active-color: $primaryColor;
@@ -11,13 +12,11 @@ $controlDisabled: grey;
 $theme-colors: (
         'primary': $primaryColor,
         'success': $primaryColor,
+        'secondary': $secondaryColor,
         'danger': #ff0000,
         'lightgrey': rgba(0, 0, 0, 0.075)
 );
 $whiteColor: #fff;
-$primaryPressedBg: #8ed1b5;
-$secondaryBg: #f8941c;
-$secondaryColor: $whiteColor;
 
 $containerWidth: 1200px;
 $containerPadding: 10px;
