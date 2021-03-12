@@ -43,6 +43,8 @@
     "required_pin_code" : "PIN kodas privalomas",
     "edit": "Redaguoti",
     "change": "Keisti",
-    "phone_number": "Telefono numeris"
+    "phone_number": "Telefono numeris",
+    "phone_number_required" : "Telefono numeris privalomas",
+    "phone_number_invalid": "Telefono numeris neteisingas"
   }
 }
