@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -24,7 +23,6 @@ const fakeInfo: User = {
 };
 
 const ProfilePage = () => {
-  const { t } = useTranslation();
   const contacts = { username: fakeInfo.name, email: fakeInfo.email, phoneNumber: fakeInfo.phone };
   const [showCreateCardModal, setShowCreateCardModal] = useState(false);
   const [showEditContactsModal, setShowEditContactsModal] = useState(false);
