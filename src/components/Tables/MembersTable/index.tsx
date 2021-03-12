@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Table from 'react-bootstrap/Table';
 import LoadingView from 'components/Loading';
 import EmptyDataView from 'components/EmptyDataView';
-import DeleteConfirmation from 'components/Modals/Confirmation/Delete';
+import DeleteCardConfirmation from 'components/Modals/Confirmation/Delete';
 import CreateCardModal from 'components/Modals/CreateCard';
 import EditCardModal from 'components/Modals/EditCard';
 import MemberItem from './MemberItem';
@@ -68,13 +68,12 @@ const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardM
       {!!editingCard && (
         <EditCardModal show={!!editingCard} editingCard={editingCard} handleClose={() => setEditingCard(null)} />
       )}
-      {!!deletingCardId && (
-        <DeleteConfirmation
-          title={t('delete_card')}
-          confirmText={t('delete')}
-          handleClose={() => setDeletingCardId(null)}
-        />
-      )}
+      <DeleteCardConfirmation
+        title={t('delete_card')}
+        deletingCardId={deletingCardId}
+        confirmText={t('delete')}
+        handleClose={() => setDeletingCardId(null)}
+      />
     </>
   );
 };

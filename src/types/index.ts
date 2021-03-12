@@ -16,3 +16,13 @@ export type Contacts = {
   email: string;
   phoneNumber: string;
 };
+
+export type User = {
+  name: string;
+  email: string;
+  phone: string;
+  pinCode: string;
+  familyMembers: number;
+  myCards: number;
+  myPrivileges: number;
+};

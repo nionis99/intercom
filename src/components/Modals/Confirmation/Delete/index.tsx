@@ -3,12 +3,19 @@ import ModalOfConfirmation from 'components/Modals/Confirmation';
 
 interface Props {
   title: string;
+  deletingCardId: string | null;
   confirmText: string;
   handleClose: () => void;
 }
 
-const DeleteConfirmation = ({ title, confirmText, handleClose }: Props) => {
-  const onSubmitClick = () => handleClose();
+const DeleteCardConfirmation = ({ title, deletingCardId, confirmText, handleClose }: Props) => {
+  if (!deletingCardId) return null;
+
+  const onSubmitClick = () => {
+    console.log(deletingCardId);
+    handleClose();
+  };
+
   const onResetClick = () => handleClose();
 
   return (
@@ -21,4 +28,4 @@ const DeleteConfirmation = ({ title, confirmText, handleClose }: Props) => {
   );
 };
 
-export default DeleteConfirmation;
+export default DeleteCardConfirmation;

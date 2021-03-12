@@ -10,8 +10,10 @@ import LayoutContainer from 'components/Layout';
 import CreateCardModal from 'components/Modals/CreateCard';
 import ChangePinCodeModal from 'components/Modals/ChangePinCode';
 import ChangeContactsModal from 'components/Modals/ChangeContacts';
+import UserInfo from 'components/UserInfo';
+import { User } from 'types';
 
-const fakeInfo = {
+const fakeInfo: User = {
   name: 'Ivan',
   email: 'fake@fake.com',
   phone: '+37066666666',
@@ -48,26 +50,7 @@ const ProfilePage = () => {
         </Col>
         <Row className="d-flex">
           <div className="d-flex justify-content-center col-lg-6 my-4 p-0">
-            <Container className="d-flex flex-column  align-items-center text-center">
-              <h6>
-                {t('email')}: {fakeInfo.email}
-              </h6>
-              <h6>
-                {t('telephone')}: {fakeInfo.phone}
-              </h6>
-              <h6>
-                {t('pin')}: {fakeInfo.pinCode}
-              </h6>
-              <h6>
-                {t('family_members')}: {fakeInfo.familyMembers}
-              </h6>
-              <h6>
-                {t('my_cards')}: {fakeInfo.myCards}
-              </h6>
-              <h6>
-                {t('my_privileges')}: {fakeInfo.myPrivileges}
-              </h6>
-            </Container>
+            <UserInfo user={fakeInfo} />
           </div>
           <div className="d-flex justify-content-center align-items-center col-lg-6 my-4">
             <Container>
