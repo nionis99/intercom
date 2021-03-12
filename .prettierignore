@@ -2,7 +2,3 @@
 **/yarn.lock
 
 **/build
-
-src/graphql/types.tsx
-src/graphql/operationsTypes.tsx
-src/graphql/hooks.tsx
