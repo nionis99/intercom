@@ -8,9 +8,15 @@ interface Props {
   setShowChangePinCodeModal: Dispatch<SetStateAction<boolean>>;
   setShowCreateCardModal: Dispatch<SetStateAction<boolean>>;
   setShowEditContactsModal: Dispatch<SetStateAction<boolean>>;
+  setShowChangePasswordModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const UserProfileButtons = ({ setShowChangePinCodeModal, setShowCreateCardModal, setShowEditContactsModal }: Props) => {
+const UserProfileButtons = ({
+  setShowChangePinCodeModal,
+  setShowCreateCardModal,
+  setShowEditContactsModal,
+  setShowChangePasswordModal,
+}: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -32,7 +38,7 @@ const UserProfileButtons = ({ setShowChangePinCodeModal, setShowCreateCardModal,
           </Button>
         </div>
         <div className="col-lg-12">
-          <Button variant="secondary" className="w-100">
+          <Button variant="secondary" className="w-100" onClick={() => setShowChangePasswordModal(true)}>
             {t('change_password')}
           </Button>
         </div>

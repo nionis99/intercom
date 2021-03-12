@@ -9,6 +9,7 @@ import CreateCardModal from 'components/Modals/CreateCard';
 import ChangePinCodeModal from 'components/Modals/ChangePinCode';
 import ChangeContactsModal from 'components/Modals/ChangeContacts';
 import UserProfileButtons from 'components/Buttons/UserProfileButtons';
+import ChangePasswordModal from 'components/Modals/ChangePassword';
 import UserInfo from 'components/UserInfo';
 import { User } from 'types';
 
@@ -27,20 +28,10 @@ const ProfilePage = () => {
   const [showCreateCardModal, setShowCreateCardModal] = useState(false);
   const [showEditContactsModal, setShowEditContactsModal] = useState(false);
   const [showChangePinCodeModal, setShowChangePinCodeModal] = useState(false);
+  const [showChangePasswordModal, setShowChangePasswordModal] = useState(false);
 
   return (
     <LayoutContainer className="justify-content-md-center overflow-auto position-relative">
-      <CreateCardModal show={showCreateCardModal} handleClose={() => setShowCreateCardModal(false)} />
-      <ChangePinCodeModal
-        show={showChangePinCodeModal}
-        pinCode={fakeInfo.pinCode}
-        handleClose={() => setShowChangePinCodeModal(false)}
-      />
-      <ChangeContactsModal
-        show={showEditContactsModal}
-        contacts={contacts}
-        handleClose={() => setShowEditContactsModal(false)}
-      />
       <div className="h-100 pt-lg-4 pt-2">
         <Container className="d-flex flex-column pt-lg-4 pt-2">
           <Col md={12} className="d-flex flex-column align-items-center pb-4">
@@ -56,11 +47,24 @@ const ProfilePage = () => {
                 setShowChangePinCodeModal={setShowChangePinCodeModal}
                 setShowCreateCardModal={setShowCreateCardModal}
                 setShowEditContactsModal={setShowEditContactsModal}
+                setShowChangePasswordModal={setShowChangePasswordModal}
               />
             </div>
           </Row>
         </Container>
       </div>
+      <ChangePinCodeModal
+        show={showChangePinCodeModal}
+        pinCode={fakeInfo.pinCode}
+        handleClose={() => setShowChangePinCodeModal(false)}
+      />
+      <CreateCardModal show={showCreateCardModal} handleClose={() => setShowCreateCardModal(false)} />
+      <ChangeContactsModal
+        show={showEditContactsModal}
+        contacts={contacts}
+        handleClose={() => setShowEditContactsModal(false)}
+      />
+      <ChangePasswordModal show={showChangePasswordModal} handleClose={() => setShowChangePasswordModal(false)} />
     </LayoutContainer>
   );
 };
