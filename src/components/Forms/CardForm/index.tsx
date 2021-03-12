@@ -19,7 +19,7 @@ export interface CardFormInputs {
 
 const cardSchema = yup.object().shape({
   cardId: yup.string().required('required_card_id').trim(),
-  code: yup.string().required('required_code').trim(),
+  code: yup.string().required('required_pin_code').trim(),
   status: yup.boolean(),
 });
 
@@ -61,28 +61,14 @@ const CardForm = ({ editingCard, onSubmit, handleClose, loading }: Props) => {
       </Form.Group>
       <Form.Group className="w-100 mb-2">
         <Form.Label>{t('card_id')}</Form.Label>
-        <Form.Control
-          ref={register}
-          placeholder={t('card_id')}
-          name="cardId"
-          type="text"
-          defaultValue={editingCard?.cardId || ''}
-          isInvalid={!!errors.cardId}
-        />
+        <Form.Control ref={register} placeholder={t('card_id')} name="cardId" type="text" isInvalid={!!errors.cardId} />
         <Form.Control.Feedback type="invalid">
           {errors.cardId?.message && t(errors.cardId.message)}
         </Form.Control.Feedback>
       </Form.Group>
       <Form.Group className="w-100 mb-2">
-        <Form.Label>{t('code')}</Form.Label>
-        <Form.Control
-          ref={register}
-          placeholder={t('code')}
-          name="code"
-          type="text"
-          defaultValue={editingCard?.code || ''}
-          isInvalid={!!errors.code}
-        />
+        <Form.Label>{t('pin_code')}</Form.Label>
+        <Form.Control ref={register} placeholder={t('pin_code')} name="code" type="text" isInvalid={!!errors.code} />
         <Form.Control.Feedback type="invalid">{errors.code?.message && t(errors.code.message)}</Form.Control.Feedback>
       </Form.Group>
       <div className="w-100 my-2">

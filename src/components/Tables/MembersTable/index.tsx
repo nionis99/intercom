@@ -44,14 +44,12 @@ const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardM
 
   return (
     <>
-      {isOpenCreateCardModal && (
-        <CreateCardModal show={isOpenCreateCardModal} handleClose={() => setIsOpenCreateCardModal(false)} />
-      )}
+      <CreateCardModal show={isOpenCreateCardModal} handleClose={() => setIsOpenCreateCardModal(false)} />
       <Table borderless hover responsive="sm">
         <thead>
           <tr className="text-center">
             <th className="font-weight-normal">{t('card_id')}</th>
-            <th className="font-weight-normal">{t('code')}</th>
+            <th className="font-weight-normal">{t('pin_code')}</th>
             <th className="font-weight-normal">{t('status')}</th>
             <th className="font-weight-normal">{t('actions')}</th>
           </tr>

@@ -10,3 +10,9 @@ export type Member = {
   code: string;
   status: boolean;
 };
+
+export type Contacts = {
+  username: string;
+  email: string;
+  phoneNumber: string;
+};

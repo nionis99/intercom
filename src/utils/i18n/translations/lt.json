@@ -18,13 +18,13 @@
     "family_members": "Šeimos nariai",
     "my_cards": "Mano kortelės",
     "my_privileges": "Mano durų teisės",
-    "change_pin": "Keisti PIN kodą",
+    "change_pin_code": "Keisti PIN kodą",
     "add_cards": "Pridėti kortelių",
-    "change_contacts": "Keisti kontaktus",
+    "change_contacts": "Keisti kontaktinę informaciją",
     "change_password": "Keisti slaptažodį",
     "assigned_cards" : "Priskirtos kortelės",
     "card_id": "Kortelės ID",
-    "code": "Kodas",
+    "pin_code": "PIN kodas",
     "status": "Būsena",
     "actions": "Veiksmai",
     "add_new_card" : "Pridėti naują kortelę",
@@ -40,7 +40,9 @@
     "create_card" : "Sukurti kortelę",
     "edit_card" : "Redaguoti kortelę",
     "required_card_id" : "Kortelės ID privalomas",
-    "required_code" : "Kodas privalomas",
-    "edit": "Redaguoti"
+    "required_pin_code" : "PIN kodas privalomas",
+    "edit": "Redaguoti",
+    "change": "Keisti",
+    "phone_number": "Telefono numeris"
   }
 }

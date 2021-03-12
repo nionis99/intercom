@@ -36,7 +36,7 @@ const FeedbackForm = ({ onSubmit, closeModal }: Props) => {
   return (
     <Form noValidate onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
       <Form.Group className="w-100">
-        <Form.Label className="text-muted small">{t('name')}</Form.Label>
+        <Form.Label className="text-muted small">{t('username')}</Form.Label>
         <Form.Control type="text" name="name" ref={register} isInvalid={!!errors.name} />
         <Form.Control.Feedback type="invalid">{errors.name?.message && t(errors.name?.message)}</Form.Control.Feedback>
       </Form.Group>

@@ -18,13 +18,13 @@
     "family_members": "Family members",
     "my_cards": "My cards",
     "my_privileges": "My privileges",
-    "change_pin": "Change PIN code",
+    "change_pin_code": "Change PIN code",
     "add_cards": "Add cards",
-    "change_contacts": "Change contacts",
+    "change_contacts": "Change contact information",
     "change_password": "Change password",
     "assigned_cards" : "Assigned cards",
     "card_id": "Card ID",
-    "code": "Code",
+    "pin_code": "PIN code",
     "status": "Status",
     "actions": "Actions",
     "add_new_card" : "Add new card",
@@ -40,7 +40,9 @@
     "create_card" : "Create card",
     "edit_card" : "Edit card",
     "required_card_id" : "Card ID is required",
-    "required_code" : "Code is required",
-    "edit": "Edit"
+    "required_pin_code" : "PIN code is required",
+    "edit": "Edit",
+    "change": "Change",
+    "phone_number": "Phone number"
   }
 }

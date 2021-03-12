@@ -17,6 +17,8 @@ const CreateCardModal = ({ show, handleClose }: Props) => {
     handleClose();
   };
 
+  if (!show) return null;
+
   return (
     <ModalContainer title={t('create_card')} isActive={show} centered handleClose={handleClose}>
       <div className="h-100 w-100 d-flex">
