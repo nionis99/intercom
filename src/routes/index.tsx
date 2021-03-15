@@ -3,10 +3,10 @@ import { Switch } from 'react-router-dom';
 
 import UnauthorizedRoute from 'routes/Unauthorized';
 import AuthorizedRoute from './Authorized';
+import FamilyMembersPage from 'pages/FamilyMembers';
 import LoginPage from 'pages/Login';
 import DashboardPage from 'pages/Dashboard';
 import ProfilePage from 'pages/Profile';
-import MembersPage from 'pages/Members';
 import EquipmentPage from 'pages/Equipment';
 
 const Routes = () => (
@@ -20,7 +20,7 @@ const Routes = () => (
           <ProfilePage />
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/members">
-          <MembersPage />
+          <FamilyMembersPage />
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/equipment">
           <EquipmentPage />

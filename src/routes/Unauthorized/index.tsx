@@ -6,20 +6,5 @@ import { SentryRoute } from 'App';
 export default function UnauthorizedRoute({ children, ...rest }: RouteProps) {
   const { isAuthenticated } = useAppState();
 
-  return (
-    <SentryRoute
-      {...rest}
-      render={() =>
-        isAuthenticated ? (
-          <Redirect
-            to={{
-              pathname: '/',
-            }}
-          />
-        ) : (
-          children
-        )
-      }
-    />
-  );
+  return <SentryRoute {...rest} render={() => (isAuthenticated ? <Redirect to={{ pathname: '/' }} /> : children)} />;
 }

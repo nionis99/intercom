@@ -4,10 +4,9 @@ import Constants from 'Constants';
 
 import en from './translations/en.json';
 import lt from './translations/lt.json';
-import ru from './translations/ru.json';
 
 type Translations = { [key: string]: ResourceLanguage };
-const translations: Translations = { en, lt, ru };
+const translations: Translations = { en, lt };
 
 const availableLanguages = Object.keys(translations);
 

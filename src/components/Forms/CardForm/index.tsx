@@ -9,22 +9,20 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 
 import yup from 'utils/yup';
-import { Member } from 'types';
+import { Card } from 'types';
 
 export interface CardFormInputs {
-  cardId: string;
-  code: string;
+  cardNumber: string;
   status: boolean;
 }
 
 const cardSchema = yup.object().shape({
-  cardId: yup.string().required('required_card_id').trim(),
-  code: yup.string().required('required_pin_code').trim(),
+  cardNumber: yup.string().required('required_card_number').trim(),
   status: yup.boolean(),
 });
 
 interface Props {
-  editingCard?: Member;
+  editingCard?: Card;
   onSubmit: (data: CardFormInputs) => void;
   handleClose: () => void;
   loading: boolean;
@@ -37,8 +35,7 @@ const CardForm = ({ editingCard, onSubmit, handleClose, loading }: Props) => {
     mode: 'all',
     resolver: yupResolver(cardSchema),
     defaultValues: {
-      cardId: editingCard?.cardId || '',
-      code: editingCard?.code || '',
+      cardNumber: editingCard?.cardNumber || '',
       status: editingCard?.status || false,
     },
   });
@@ -60,16 +57,17 @@ const CardForm = ({ editingCard, onSubmit, handleClose, loading }: Props) => {
         />
       </Form.Group>
       <Form.Group className="w-100 mb-2">
-        <Form.Label>{t('card_id')}</Form.Label>
-        <Form.Control ref={register} placeholder={t('card_id')} name="cardId" type="text" isInvalid={!!errors.cardId} />
+        <Form.Label>{t('card_number')}</Form.Label>
+        <Form.Control
+          ref={register}
+          placeholder={t('card_number')}
+          name="cardNumber"
+          type="text"
+          isInvalid={!!errors.cardNumber}
+        />
         <Form.Control.Feedback type="invalid">
-          {errors.cardId?.message && t(errors.cardId.message)}
+          {errors.cardNumber?.message && t(errors.cardNumber.message)}
         </Form.Control.Feedback>
-      </Form.Group>
-      <Form.Group className="w-100 mb-2">
-        <Form.Label>{t('pin_code')}</Form.Label>
-        <Form.Control ref={register} placeholder={t('pin_code')} name="code" type="text" isInvalid={!!errors.code} />
-        <Form.Control.Feedback type="invalid">{errors.code?.message && t(errors.code.message)}</Form.Control.Feedback>
       </Form.Group>
       <div className="w-100 my-2">
         <Row>

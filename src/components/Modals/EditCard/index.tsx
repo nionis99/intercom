@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import CardForm, { CardFormInputs } from 'components/Forms/CardForm';
 import ModalContainer from 'components/Modals';
-import { Member } from 'types';
+import { Card } from 'types';
 
 interface Props {
   show: boolean;
-  editingCard: Member;
+  editingCard: Card;
   handleClose: () => void;
 }
 

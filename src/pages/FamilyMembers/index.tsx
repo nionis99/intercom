@@ -5,14 +5,14 @@ import Card from 'react-bootstrap/Card';
 import LayoutContainer from 'components/Layout';
 import MembersListTable from 'components/Tables/MembersTable';
 
-const MembersPage = () => {
+const FamilyMembersPage = () => {
   const { t } = useTranslation();
   const [isOpenCreateCardModal, setIsOpenCreateCardModal] = useState(false);
 
   return (
     <LayoutContainer>
       <Card.Header className="d-flex align-items-center font-weight-bold">
-        {t('assigned_cards')}
+        {t('family_members')}
         <span
           className="d-flex align-items-center ml-auto cursor-pointer font-weight-normal"
           onClick={() => setIsOpenCreateCardModal(true)}
@@ -32,4 +32,4 @@ const MembersPage = () => {
   );
 };
 
-export default MembersPage;
+export default FamilyMembersPage;

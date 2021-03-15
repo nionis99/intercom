@@ -16,7 +16,7 @@ const UserInfo = ({ user }: Props) => {
         {t('email')}: {user.email}
       </h6>
       <h6>
-        {t('telephone')}: {user.phone}
+        {t('phone_number')}: {user.phone}
       </h6>
       <h6>
         {t('pin')}: {user.pinCode}

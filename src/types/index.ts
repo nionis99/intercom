@@ -6,8 +6,16 @@ export type Equipment = {
 };
 
 export type Member = {
-  cardId: string;
-  code: string;
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  cards: number;
+};
+
+export type Card = {
+  id: string;
+  cardNumber: string;
   status: boolean;
 };
 

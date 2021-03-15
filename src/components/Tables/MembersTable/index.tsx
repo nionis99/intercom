@@ -10,19 +10,10 @@ import MemberItem from './MemberItem';
 import { Member } from 'types';
 
 const fakeData: Member[] = [
-  { cardId: '112312', code: '333', status: true },
-  { cardId: '241231', code: '432', status: true },
-  { cardId: '312312', code: '666', status: true },
-  { cardId: '441221', code: '999', status: false },
-  { cardId: '441444', code: '999', status: false },
-  { cardId: '445123', code: '999', status: false },
-  { cardId: '441343', code: '999', status: false },
-  { cardId: '441666', code: '999', status: true },
-  { cardId: '441712', code: '999', status: false },
-  { cardId: '441292', code: '999', status: false },
-  { cardId: '441281', code: '999', status: true },
-  { cardId: '441243', code: '999', status: false },
-  { cardId: '441211', code: '999', status: false },
+  { id: '1', name: 'Jonas', email: 'jonas@gmail.com', phone: '+37066666666', cards: 1 },
+  { id: '2', name: 'Petras', email: 'petras@gmail.com', phone: '+37066666666', cards: 2 },
+  { id: '3', name: 'Antanas', email: 'antanas@gmail.com', phone: '+37066666666', cards: 2 },
+  { id: '4', name: 'Povilas', email: 'povilas@gmail.com', phone: '+37066666666', cards: 3 },
 ];
 
 interface Props {
@@ -31,7 +22,7 @@ interface Props {
   setIsOpenCreateCardModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardModal }: Props) => {
+const FamilyMembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardModal }: Props) => {
   const { t } = useTranslation();
   const [deletingCardId, setDeletingCardId] = useState<string | null>(null);
   const [editingCard, setEditingCard] = useState<Member | null>(null);
@@ -44,20 +35,21 @@ const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardM
 
   return (
     <>
-      <CreateCardModal show={isOpenCreateCardModal} handleClose={() => setIsOpenCreateCardModal(false)} />
+      {/*<CreateCardModal show={isOpenCreateCardModal} handleClose={() => setIsOpenCreateCardModal(false)} />*/}
       <Table borderless hover responsive="sm">
         <thead>
           <tr className="text-center">
-            <th className="font-weight-normal">{t('card_id')}</th>
-            <th className="font-weight-normal">{t('pin_code')}</th>
-            <th className="font-weight-normal">{t('status')}</th>
+            <th className="font-weight-normal">{t('name')}</th>
+            <th className="font-weight-normal">{t('email')}</th>
+            <th className="font-weight-normal">{t('phone')}</th>
+            <th className="font-weight-normal">{t('cards')}</th>
             <th className="font-weight-normal">{t('actions')}</th>
           </tr>
         </thead>
         <tbody>
           {fakeData.map((member) => (
             <MemberItem
-              key={member.cardId}
+              key={member.id}
               member={member}
               setDeletingCardId={setDeletingCardId}
               setEditingCard={setEditingCard}
@@ -65,9 +57,9 @@ const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardM
           ))}
         </tbody>
       </Table>
-      {!!editingCard && (
-        <EditCardModal show={!!editingCard} editingCard={editingCard} handleClose={() => setEditingCard(null)} />
-      )}
+      {/*{!!editingCard && (*/}
+      {/*  <EditCardModal show={!!editingCard} editingCard={editingCard} handleClose={() => setEditingCard(null)} />*/}
+      {/*)}*/}
       <DeleteCardConfirmation
         title={t('delete_card')}
         deletingCardId={deletingCardId}
@@ -78,4 +70,4 @@ const MembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardM
   );
 };
 
-export default MembersListTable;
+export default FamilyMembersListTable;

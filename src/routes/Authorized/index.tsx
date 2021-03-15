@@ -10,16 +10,7 @@ export default function AuthorizedRoute({ children, ...rest }: RouteProps) {
     <SentryRoute
       {...rest}
       render={({ location }) =>
-        isAuthenticated ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: '/login',
-              state: { from: location },
-            }}
-          />
-        )
+        isAuthenticated ? children : <Redirect to={{ pathname: '/login', state: { from: location } }} />
       }
     />
   );
