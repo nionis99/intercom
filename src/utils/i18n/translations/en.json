@@ -49,6 +49,17 @@
     "phone_number_invalid": "Phone number is not valid",
     "required_password" : "Password is required",
     "password_min_length" : "Password should contain at least 8 characters",
-    "new_password" : "New password"
+    "new_password" : "New password",
+    "what_happened": "What happened?",
+    "what_happened_placeholder": "Tell us what happened",
+    "comments_required_error": "Information is required",
+    "internal_issues_label": "It looks like we're having some internal issues.",
+    "feedback_form_suggestion_label": "Our team has been notified. If you'd like to help, tell us what happened below.",
+    "close": "Close",
+    "send": "Send",
+    "report": "Report",
+    "homepage": "Homepage",
+    "something_went_wrong": "<0>Oops!</0> Something went wrong.",
+    "error": "Error"
   }
 }

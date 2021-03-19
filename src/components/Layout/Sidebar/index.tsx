@@ -17,6 +17,7 @@ const Sidebar = () => (
         {routes.map((route, index) => (
           <SidebarItem route={route} key={index} />
         ))}
+        <SidebarItem route="error" />
       </ul>
     </div>
   </div>

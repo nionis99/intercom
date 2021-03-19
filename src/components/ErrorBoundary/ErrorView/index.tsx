@@ -23,7 +23,7 @@ const UnexpectedError = ({ redirectToHome, eventId }: Props) => {
         </Trans>
       </h3>
       <p className="text-center">
-        <ReportButton eventId={eventId} />
+        <ReportButton redirectToHomepage={redirectToHome} eventId={eventId} />
         <Button variant="outline-primary" className="mx-2" onClick={redirectToHome}>
           <Home className="mr-1" size={20} />
           {t('homepage')}

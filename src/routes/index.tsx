@@ -8,6 +8,7 @@ import LoginPage from 'pages/Login';
 import DashboardPage from 'pages/Dashboard';
 import ProfilePage from 'pages/Profile';
 import EquipmentPage from 'pages/Equipment';
+import FakeError from 'pages/FakeError';
 
 const Routes = () => (
   <div className="d-flex flex-column flex-md-row full-height">
@@ -15,6 +16,9 @@ const Routes = () => (
       <Switch>
         <AuthorizedRoute exact path="/">
           <DashboardPage />
+        </AuthorizedRoute>
+        <AuthorizedRoute exact path="/">
+          <FakeError />
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/profile">
           <ProfilePage />

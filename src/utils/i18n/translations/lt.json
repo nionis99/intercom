@@ -49,6 +49,17 @@
     "phone_number_invalid": "Telefono numeris neteisingas",
     "required_password" : "Slaptažodis privalomas",
     "password_min_length" : "Slaptažodį turi sudaryti bent 8 simboliai",
-    "new_password" : "Naujas slaptažodis"
+    "new_password" : "Naujas slaptažodis",
+    "what_happened": "Kas nutiko?",
+    "what_happened_placeholder": "Papasakokite mums kas nutiko",
+    "comments_required_error": "Reikalinga informacija",
+    "internal_issues_label": "Panašu, kad mes turime tam tikrų vidinių problemų.",
+    "feedback_form_suggestion_label": "Apie tai pranešta mūsų komandai. Jei norite padėti, pasakykite mums, kas nutiko",
+    "close": "Uždaryti",
+    "send": "Siųsti",
+    "report": "Pranešti",
+    "homepage": "Pagrindinis puslapis",
+    "something_went_wrong": "<0>Ups!</0> Įvyko klaida.",
+    "error": "Klaida"
   }
 }
