@@ -2,11 +2,11 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppState } from 'contexts/AppState';
 import { useTranslation } from 'react-i18next';
+import { AccountCircle, Logout } from 'styled-icons/material-rounded';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import { Logout } from 'styled-icons/material-rounded';
-import { AccountCircle } from 'styled-icons/material-rounded';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
+import { logout } from 'redux/actions/AuthorizationActions';
 
 const LayoutHeader = () => {
   const { t } = useTranslation();
@@ -31,7 +31,7 @@ const LayoutHeader = () => {
           {!!accessToken && (
             <Navbar.Text className="d-flex align-items-center justify-content-center ml-md-3">
               <Logout
-                onClick={() => setAccessToken(null)}
+                onClick={() => logout(setAccessToken)}
                 size={30}
                 className="text-decoration-none text-danger cursor-pointer"
               >
