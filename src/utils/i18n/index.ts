@@ -1,6 +1,6 @@
 import { initReactI18next } from 'react-i18next';
 import i18n, { ResourceLanguage } from 'i18next';
-import Constants from 'Constants';
+import { DEFAULT_LANGUAGE } from 'Constants';
 
 import en from './translations/en.json';
 import lt from './translations/lt.json';
@@ -11,7 +11,7 @@ const translations: Translations = { en, lt };
 const availableLanguages = Object.keys(translations);
 
 let lng = localStorage.getItem('lng');
-if (!lng || !translations.hasOwnProperty(lng)) lng = Constants.DEFAULT_LANGUAGE;
+if (!lng || !translations.hasOwnProperty(lng)) lng = DEFAULT_LANGUAGE;
 
 i18n.use(initReactI18next).init({
   resources: translations,

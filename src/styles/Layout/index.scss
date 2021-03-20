@@ -35,3 +35,7 @@ button:focus {
   font-size: 80%;
   color: $colorRed;
 }
+
+.Toastify__toast--error{
+  background: $colorRed;
+}

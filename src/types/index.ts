@@ -34,3 +34,5 @@ export type User = {
   myCards: number;
   myPrivileges: number;
 };
+
+export type Maybe<T> = T | null;

@@ -8,6 +8,8 @@ import 'utils/i18n';
 
 import AppStateProvider from 'contexts/AppState';
 import ErrorBoundary from 'components/ErrorBoundary';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const history = createBrowserHistory();
 
@@ -27,18 +29,15 @@ if (process.env.REACT_APP_SENTRY_DSN) {
   });
 }
 
-console.log(process.env.REACT_APP_VERSION);
-
-const App = () => {
-  return (
-    <ErrorBoundary>
-      <AppStateProvider>
-        <Router history={history}>
-          <Routes />
-        </Router>
-      </AppStateProvider>
-    </ErrorBoundary>
-  );
-};
+const App = () => (
+  <ErrorBoundary>
+    <AppStateProvider>
+      <Router history={history}>
+        <Routes />
+        <ToastContainer autoClose={2000} />
+      </Router>
+    </AppStateProvider>
+  </ErrorBoundary>
+);
 
 export default App;

@@ -2,7 +2,7 @@ import React, { createContext, SetStateAction, useContext } from 'react';
 import moment from 'moment';
 
 import useLocalStorage from 'hooks/useLocalStorage';
-import Constants from 'Constants';
+import { DEFAULT_LANGUAGE } from 'Constants';
 
 interface StateContextType {
   accessToken: string;
@@ -20,7 +20,7 @@ interface Props {
 export default function AppStateProvider({ children }: Props) {
   const currentLocale = localStorage.getItem('lng');
   const [accessToken, setAccessToken] = useLocalStorage('accessToken', null);
-  moment.locale(currentLocale || Constants.DEFAULT_LANGUAGE);
+  moment.locale(currentLocale || DEFAULT_LANGUAGE);
 
   const isAuthenticated = !!accessToken;
 

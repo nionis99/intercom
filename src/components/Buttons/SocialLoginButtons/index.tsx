@@ -23,6 +23,7 @@ const SocialLoginButtons = () => {
         onFailure={googleResponse}
         className="login-btn justify-content-center my-2 font-weight-bold btn-sm"
         buttonText={t('login_google')}
+        disabled
       />
       <FacebookLogin
         appId=""
@@ -32,6 +33,7 @@ const SocialLoginButtons = () => {
         size="small"
         cssClass="fb login w-100 justify-content-center"
         textButton={t('login_facebook')}
+        isDisabled
       />
     </div>
   );
