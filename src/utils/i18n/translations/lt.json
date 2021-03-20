@@ -60,6 +60,9 @@
     "report": "Pranešti",
     "homepage": "Pagrindinis puslapis",
     "something_went_wrong": "<0>Ups!</0> Įvyko klaida.",
-    "error": "Klaida"
+    "error": "Klaida",
+    "page_not_found": "Puslapis neegzistuoja",
+    "nothing_found_message": "Puslapis, kurio ieškote, gali būti pašalintas, jo pavadinimas buvo pakeistas arba jis laikinai nepasiekiamas",
+    "return_to_homepage": "Grįžti į pradinį puslapį"
   }
 }

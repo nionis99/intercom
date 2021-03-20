@@ -27,6 +27,8 @@ if (process.env.REACT_APP_SENTRY_DSN) {
   });
 }
 
+console.log(process.env.REACT_APP_VERSION);
+
 const App = () => {
   return (
     <ErrorBoundary>

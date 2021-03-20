@@ -60,6 +60,9 @@
     "report": "Report",
     "homepage": "Homepage",
     "something_went_wrong": "<0>Oops!</0> Something went wrong.",
-    "error": "Error"
+    "error": "Error",
+    "page_not_found": "OOPS! PAGE WAS NOT FOUND",
+    "nothing_found_message": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable",
+    "return_to_homepage": "Return to homepage"
   }
 }
