@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
 import LayoutHeader from 'components/Layout/Header';
 import Sidebar from 'components/Layout/Sidebar';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { Card } from 'react-bootstrap';
 
 interface Props {
@@ -12,16 +10,14 @@ interface Props {
 
 const LayoutContainer = ({ children, className = '' }: Props) => {
   return (
-    <div className="vh-100 h-100 w-100 content">
+    <div className="d-flex flex-column h-100">
       <LayoutHeader />
-      <Row className="content d-flex m-0">
-        <Col xs={3} className="p-0 d-none d-md-block">
-          <Sidebar />
-        </Col>
-        <Col xs={12} md={9} className="d-flex content m-0 overflow-auto p-2">
-          <Card className={`${className} d-flex h-100 w-100 rounded  bg-light overflow-auto`}>{children}</Card>
-        </Col>
-      </Row>
+      <div className="d-flex flex-row content w-100">
+        <Sidebar />
+        <div className="d-flex flex-column p-2  w-100 overflow-auto">
+          <Card className={`${className} d-flex h-100 rounded bg-light`}>{children}</Card>
+        </div>
+      </div>
     </div>
   );
 };

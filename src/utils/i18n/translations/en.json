@@ -19,7 +19,7 @@
     "family_members": "Family members",
     "my_cards": "My cards",
     "my_privileges": "My privileges",
-    "change_pin_code": "Change PIN code",
+    "change_pin_code": "Change PIN",
     "add_cards": "Add cards",
     "change_contacts": "Change contact information",
     "change_password": "Change password",
@@ -66,6 +66,8 @@
     "page_not_found": "OOPS! PAGE WAS NOT FOUND",
     "nothing_found_message": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable",
     "return_to_homepage": "Return to homepage",
-    "feature_is_in_development": "Feature is in development"
+    "feature_is_in_development": "Feature is in development",
+    "server_error": "Server Error",
+    "server_error_message": "Our server goes down. We will be back soon. Be patient."
   }
 }

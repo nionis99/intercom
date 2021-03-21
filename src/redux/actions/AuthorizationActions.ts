@@ -1,11 +1,12 @@
 import React from 'react';
 import { Dispatch } from 'redux';
-import axios, { AxiosError } from 'axios';
-import { toast } from 'react-toastify';
-import { LoginFormInputs } from 'components/Forms/LoginForm';
+import axios, { AxiosResponse } from 'axios';
+
 import { AuthActionTypes, LOGIN_LOADING } from 'redux/types/AuthTypes';
-import { AUTH_URL } from 'Constants';
+import { LoginFormInputs } from 'components/Forms/LoginForm';
+import apiAction from './apiAction';
 import authHeader from 'utils/requestHeader';
+import { AUTH_URL } from 'Constants';
 
 export const loginLoading = (loading: boolean): AuthActionTypes => ({ type: LOGIN_LOADING, loading });
 
@@ -13,11 +14,8 @@ export const login = (data: LoginFormInputs, setAccessToken: React.Dispatch<Reac
   dispatch: Dispatch
 ) => {
   dispatch(loginLoading(true));
-  return axios
-    .post(AUTH_URL, data)
-    .then((response) => setAccessToken(response.data.token))
-    .catch((error: AxiosError) => toast.error(error.response?.data || 'Error!'))
-    .finally(() => dispatch(loginLoading(false)));
+  const dispatchSuccess = (response: AxiosResponse) => setAccessToken(response.data.token);
+  return apiAction(AUTH_URL, 'POST', dispatchSuccess, dispatch(loginLoading(false)), data);
 };
 
 export const logout = (setAccessToken: React.Dispatch<React.SetStateAction<string | null>>) => {

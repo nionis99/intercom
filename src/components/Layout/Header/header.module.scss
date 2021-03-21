@@ -1,0 +1,7 @@
+$smallScreenWidth: 320px;
+
+@media (max-width: $smallScreenWidth) {
+  .navBrand {
+    display: none !important;
+  }
+}

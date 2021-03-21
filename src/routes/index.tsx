@@ -12,6 +12,9 @@ import EquipmentPage from 'pages/Equipment';
 import AccessScenariosPage from 'pages/Access';
 import FakeError from 'pages/FakeError';
 import NotFoundPage from 'pages/NotFound';
+import ServerErrorPage from '../pages/ServerError';
+
+export const routesData = ['profile', 'members', 'equipment', 'access'];
 
 const Routes = () => (
   <div className="d-flex flex-column flex-md-row full-height">
@@ -35,8 +38,11 @@ const Routes = () => (
         <UnauthorizedRoute path="/login">
           <LoginPage />
         </UnauthorizedRoute>
-        <SentryRoute exact path="/access">
+        <AuthorizedRoute exact path="/access">
           <AccessScenariosPage />
+        </AuthorizedRoute>
+        <SentryRoute path="/server">
+          <ServerErrorPage />
         </SentryRoute>
         <SentryRoute exact path="/404">
           <NotFoundPage />

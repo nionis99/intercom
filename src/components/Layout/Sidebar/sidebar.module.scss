@@ -1,5 +1,11 @@
 @import 'src/styles/variables';
 
+.sidebar{
+  flex-direction: column;
+  width: $sidebarWidth;
+  min-width: $sidebarWidth;
+}
+
 .link {
   text-decoration: none;
   color: $colorBlack;

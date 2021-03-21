@@ -39,10 +39,7 @@ $colorDarkTransparent: #192124af;
 $themeColor: #ffffff00;
 $themeDarkColor: #272727bd;
 
-$navigation-width: 70px;
-$sidebar-width: 300px;
-$sidebar-participants-width: 180px;
-$sidebar-mobile-height: 90px;
+$sidebarWidth: 300px;
 
 $btn-box-shadow: none;
 $btn-focus-box-shadow: none;
@@ -51,4 +48,6 @@ $input-btn-focus-box-shadow: none;
 $font-family-poppins: 'Poppins', sans-serif;
 $font-family-base: $font-family-poppins;
 $font-family-default : $font-family-poppins;
+
+$smallScreenWidth: 320px;
 
