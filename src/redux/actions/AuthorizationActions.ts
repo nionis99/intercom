@@ -15,7 +15,8 @@ export const login = (data: LoginFormInputs, setAccessToken: React.Dispatch<Reac
 ) => {
   dispatch(loginLoading(true));
   const dispatchSuccess = (response: AxiosResponse) => setAccessToken(response.data.token);
-  return apiAction(AUTH_URL, 'POST', dispatchSuccess, dispatch(loginLoading(false)), data);
+  const dispatchLoading = () => dispatch(loginLoading(false));
+  return apiAction(AUTH_URL, 'POST', dispatchSuccess, dispatchLoading, data);
 };
 
 export const logout = (setAccessToken: React.Dispatch<React.SetStateAction<string | null>>) => {

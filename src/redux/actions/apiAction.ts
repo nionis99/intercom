@@ -6,7 +6,7 @@ const apiAction = <D, L, S>(
   url: string,
   method: Method,
   dispatchSuccess: (response: AxiosResponse) => S,
-  dispatchLoading: L,
+  dispatchLoading: () => L,
   data?: D
 ) => {
   const headers = authHeader();
@@ -14,7 +14,7 @@ const apiAction = <D, L, S>(
     .request({ url, method, headers, data })
     .then(dispatchSuccess)
     .catch(handleError)
-    .finally(() => dispatchLoading);
+    .finally(dispatchLoading);
 };
 
 const handleError = (error: AxiosError) => {

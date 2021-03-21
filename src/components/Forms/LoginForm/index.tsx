@@ -25,6 +25,8 @@ interface Props {
 const LoginForm = ({ handleLoginSubmit, loading }: Props) => {
   const { t } = useTranslation();
 
+  console.log(loading);
+
   const { handleSubmit, errors, register } = useForm<LoginFormInputs>({
     mode: 'all',
     resolver: yupResolver(loginSchema),
@@ -49,7 +51,7 @@ const LoginForm = ({ handleLoginSubmit, loading }: Props) => {
             <Form.Control.Feedback type="invalid">{t(errors.password.message)}</Form.Control.Feedback>
           )}
         </Form.Group>
-        <Button type="submit" className="w-100 my-2 align-items-center">
+        <Button type="submit" className="w-100 my-2 align-items-center" disabled={loading}>
           {loading ? <Spinner size="sm" animation="border" className="align-middle" /> : t('login')}
         </Button>
       </Form>
