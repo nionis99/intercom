@@ -14,8 +14,8 @@ const LayoutContainer = ({ children, className = '' }: Props) => {
       <LayoutHeader />
       <div className="d-flex flex-row content w-100">
         <Sidebar />
-        <div className="d-flex flex-column p-2  w-100 overflow-auto">
-          <Card className={`${className} d-flex h-100 rounded bg-light`}>{children}</Card>
+        <div className="d-flex flex-column p-2 h-100 w-100 ">
+          <Card className={`${className} d-flex rounded bg-light overflow-auto`}>{children}</Card>
         </div>
       </div>
     </div>

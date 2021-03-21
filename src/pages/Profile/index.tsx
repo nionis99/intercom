@@ -32,7 +32,7 @@ const ProfilePage = () => {
 
   return (
     <LayoutContainer className="justify-content-md-center overflow-auto position-relative">
-      <div className="h-100 pt-lg-4 w-100">
+      <div className="h-100 py-lg-4 w-100">
         <Container className="d-flex flex-column pt-lg-4 pt-4">
           <Col md={12} className="d-flex flex-column align-items-center pb-4">
             <Avatar src="/images/user.png" className="mb-2" round />

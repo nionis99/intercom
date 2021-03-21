@@ -8,7 +8,7 @@ const EquipmentPage = () => {
   const { t } = useTranslation();
 
   return (
-    <LayoutContainer>
+    <LayoutContainer className="h-100">
       <Card.Header className="d-flex align-items-center font-weight-bold">{t('equipment')}</Card.Header>
       <Card.Body className="h-100 overflow-auto">
         <NewFeatureUI />
