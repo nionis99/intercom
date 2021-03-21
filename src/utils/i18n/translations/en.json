@@ -8,10 +8,12 @@
     "name_required_error": "Username is required",
     "password_required_error": "Password is required",
     "login": "Login",
+    "logout": "Logout",
     "welcome": "Welcome to <0>smart</0> intercoms",
     "profile": "Profile",
-    "members" : "Family members",
-    "equipment": "Equipment",
+    "members" : "Users",
+    "equipment": "Equipment statuses",
+    "access": "Access scenarios",
     "email": "E-mail",
     "pin": "My PIN",
     "family_members": "Family members",
@@ -63,6 +65,7 @@
     "error": "Error",
     "page_not_found": "OOPS! PAGE WAS NOT FOUND",
     "nothing_found_message": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable",
-    "return_to_homepage": "Return to homepage"
+    "return_to_homepage": "Return to homepage",
+    "feature_is_in_development": "Feature is in development"
   }
 }

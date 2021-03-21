@@ -12,13 +12,13 @@ interface Props {
 
 const LayoutContainer = ({ children, className = '' }: Props) => {
   return (
-    <div className="vh-100 w-100 content overflow-hidden">
+    <div className="vh-100 h-100 w-100 content">
       <LayoutHeader />
       <Row className="content d-flex m-0">
-        <Col xs={3} className="p-0">
+        <Col xs={3} className="p-0 d-none d-md-block">
           <Sidebar />
         </Col>
-        <Col xs={9} className="d-flex content m-0 overflow-auto p-2">
+        <Col xs={12} md={9} className="d-flex content m-0 overflow-auto p-2">
           <Card className={`${className} d-flex h-100 w-100 rounded  bg-light overflow-auto`}>{children}</Card>
         </Col>
       </Row>

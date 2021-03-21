@@ -1,16 +1,17 @@
 import React from 'react';
 import { Redirect, Switch } from 'react-router-dom';
 
+import { SentryRoute } from 'App';
+import AuthorizedRoute from 'routes/Authorized';
 import UnauthorizedRoute from 'routes/Unauthorized';
-import AuthorizedRoute from './Authorized';
-import FamilyMembersPage from 'pages/FamilyMembers';
 import LoginPage from 'pages/Login';
 import DashboardPage from 'pages/Dashboard';
 import ProfilePage from 'pages/Profile';
+import FamilyMembersPage from 'pages/FamilyMembers';
 import EquipmentPage from 'pages/Equipment';
+import AccessScenariosPage from 'pages/Access';
 import FakeError from 'pages/FakeError';
 import NotFoundPage from 'pages/NotFound';
-import { SentryRoute } from 'App';
 
 const Routes = () => (
   <div className="d-flex flex-column flex-md-row full-height">
@@ -34,6 +35,9 @@ const Routes = () => (
         <UnauthorizedRoute path="/login">
           <LoginPage />
         </UnauthorizedRoute>
+        <SentryRoute exact path="/access">
+          <AccessScenariosPage />
+        </SentryRoute>
         <SentryRoute exact path="/404">
           <NotFoundPage />
         </SentryRoute>
