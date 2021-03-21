@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import { useDispatch } from 'react-redux';
 
 import { useAppState } from 'contexts/AppState';
-import { useAppSelector } from 'hooks/useReduxStateSelector';
+import { useStateSelector } from 'hooks/useReduxStateSelector';
 import LoginForm, { LoginFormInputs } from 'components/Forms/LoginForm';
 import SocialLoginButtons from 'components/Buttons/SocialLoginButtons';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
@@ -13,7 +13,7 @@ import { login } from 'redux/actions/AuthorizationActions';
 const LoginPage = () => {
   const dispatch = useDispatch();
   const { setAccessToken } = useAppState();
-  const { loading } = useAppSelector((state) => state.auth);
+  const { loading } = useStateSelector((state) => state.auth);
 
   const handleLoginSubmit = (data: LoginFormInputs) => dispatch(login(data, setAccessToken));
 
