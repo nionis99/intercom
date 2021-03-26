@@ -25,8 +25,6 @@ interface Props {
 const LoginForm = ({ handleLoginSubmit, loading }: Props) => {
   const { t } = useTranslation();
 
-  console.log(loading);
-
   const { handleSubmit, errors, register } = useForm<LoginFormInputs>({
     mode: 'all',
     resolver: yupResolver(loginSchema),

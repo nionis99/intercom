@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useDispatch } from 'react-redux';
 
-import { useAppState } from 'contexts/AppState';
+import { useAppState } from 'contexts';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import LoginForm, { LoginFormInputs } from 'components/Forms/LoginForm';
 import SocialLoginButtons from 'components/Buttons/SocialLoginButtons';

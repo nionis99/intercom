@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Location } from '@styled-icons/entypo/Location';
 import Container from 'react-bootstrap/Container';
 
-import { useAppState } from 'contexts/AppState';
+import { useAppState } from 'contexts';
 import { routesData } from 'routes';
 import { logout } from 'redux/actions/AuthorizationActions';
 import SidebarItem from './SidebarItem';

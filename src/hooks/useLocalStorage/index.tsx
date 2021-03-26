@@ -12,8 +12,8 @@ function useLocalStorage(key: string, initialValue: string | null) {
 
   const setValue = (value: string) => {
     try {
-      setStoredValue(value);
       window.localStorage.setItem(key, value);
+      setTimeout(() => setStoredValue(value));
     } catch (error) {
       console.log(error);
     }

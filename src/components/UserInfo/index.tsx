@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { User } from 'types';
+import { User } from 'types/User';
 
 interface Props {
   user: User;
@@ -13,22 +13,10 @@ const UserInfo = ({ user }: Props) => {
   return (
     <Container className="d-flex flex-column  align-items-center text-center">
       <h6>
-        {t('email')}: {user.email}
+        {t('login')}: {user.login}
       </h6>
       <h6>
-        {t('phone_number')}: {user.phone}
-      </h6>
-      <h6>
-        {t('pin')}: {user.pinCode}
-      </h6>
-      <h6>
-        {t('family_members')}: {user.familyMembers}
-      </h6>
-      <h6>
-        {t('my_cards')}: {user.myCards}
-      </h6>
-      <h6>
-        {t('my_privileges')}: {user.myPrivileges}
+        {t('password')}: {user.password}
       </h6>
     </Container>
   );

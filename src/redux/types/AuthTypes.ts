@@ -1,4 +1,5 @@
 export const LOGIN_LOADING = 'LOGIN_LOADING';
+export const USER_LOADING = 'USER_LOADING';
 
 export interface AuthorizationStateType {
   loading: boolean;
@@ -9,4 +10,9 @@ interface LoginLoadingActionType {
   loading: boolean;
 }
 
-export type AuthActionTypes = LoginLoadingActionType;
+interface GetUserLoadingActionType {
+  type: typeof USER_LOADING;
+  loading: boolean;
+}
+
+export type AuthActionTypes = LoginLoadingActionType | GetUserLoadingActionType;

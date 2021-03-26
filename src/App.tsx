@@ -6,10 +6,11 @@ import { Integrations } from '@sentry/tracing';
 import * as Sentry from '@sentry/react';
 import 'utils/i18n';
 
-import AppStateProvider from 'contexts/AppState';
+import AppStateProvider from 'contexts';
 import ErrorBoundary from 'components/ErrorBoundary';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UserProvider from './contexts/User';
 
 const history = createBrowserHistory();
 
@@ -32,10 +33,12 @@ if (process.env.REACT_APP_SENTRY_DSN) {
 const App = () => (
   <ErrorBoundary>
     <AppStateProvider>
-      <Router history={history}>
-        <Routes />
-        <ToastContainer autoClose={2000} />
-      </Router>
+      <UserProvider>
+        <Router history={history}>
+          <Routes />
+          <ToastContainer autoClose={2000} />
+        </Router>
+      </UserProvider>
     </AppStateProvider>
   </ErrorBoundary>
 );

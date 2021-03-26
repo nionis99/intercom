@@ -2,14 +2,22 @@ import axios, { AxiosError, AxiosResponse, Method } from 'axios';
 import { toast } from 'react-toastify';
 import authHeader from 'utils/requestHeader';
 
-const apiAction = <D, L, S>(
+export enum ApiMethodEnums {
+  POST = 'POST',
+  GET = 'GET',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
+}
+
+const apiAction = async <D, L, S>(
   url: string,
-  method: Method,
+  method: ApiMethodEnums,
   dispatchSuccess: (response: AxiosResponse) => S,
   dispatchLoading: () => L,
   data?: D
 ) => {
   const headers = authHeader();
+  console.log(headers);
   return axios
     .request({ url, method, headers, data })
     .then(dispatchSuccess)

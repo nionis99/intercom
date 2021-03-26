@@ -25,14 +25,9 @@ export type Contacts = {
   phoneNumber: string;
 };
 
-export type User = {
-  name: string;
-  email: string;
-  phone: string;
-  pinCode: string;
-  familyMembers: number;
-  myCards: number;
-  myPrivileges: number;
-};
+export interface DateTime {
+  create_time: string;
+  update_time: string;
+}
 
 export type Maybe<T> = T | null;
