@@ -8,12 +8,12 @@ import { useStateSelector } from 'hooks/useReduxStateSelector';
 import LoginForm, { LoginFormInputs } from 'components/Forms/LoginForm';
 import SocialLoginButtons from 'components/Buttons/SocialLoginButtons';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
-import { login } from 'redux/actions/AuthorizationActions';
+import { login } from 'redux/actions/Authorization';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const { setAccessToken } = useAppState();
-  const { loading } = useStateSelector((state) => state.auth);
+  const { loginLoading } = useStateSelector((state) => state.auth);
 
   const handleLoginSubmit = (data: LoginFormInputs) => dispatch(login(data, setAccessToken));
 
@@ -28,7 +28,7 @@ const LoginPage = () => {
             md={6}
             className={`d-flex flex-column align-items-center justify-content-center w-100 py-4`}
           >
-            <LoginForm handleLoginSubmit={handleLoginSubmit} loading={loading} />
+            <LoginForm handleLoginSubmit={handleLoginSubmit} loading={loginLoading} />
             <SocialLoginButtons />
           </Col>
         </Row>

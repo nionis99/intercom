@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
-import { logout } from 'redux/actions/AuthorizationActions';
+import { logout } from 'redux/actions/Authorization';
 import { routesData } from 'routes';
 import NavLinkItem from './NavLinkItem';
 import styles from './header.module.scss';

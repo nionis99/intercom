@@ -7,7 +7,7 @@ interface Props {
 }
 
 const LoadingView = ({ className, text }: Props) => (
-  <div className="w-100 h-100 d-flex justify-content-center align-items-center">
+  <div className="w-100 vh-100 d-flex justify-content-center align-items-center">
     <Loading className={className} text={text} />
   </div>
 );

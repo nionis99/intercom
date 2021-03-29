@@ -1,12 +1,12 @@
-import React, { SetStateAction } from 'react';
+import React from 'react';
 import { Dispatch } from 'redux';
 import axios, { AxiosResponse } from 'axios';
 
-import { AuthActionTypes, LOGIN_LOADING, USER_LOADING } from 'redux/types/AuthTypes';
-import { LoginFormInputs } from 'components/Forms/LoginForm';
-import apiAction, { ApiMethodEnums } from './apiAction';
+import apiAction, { ApiMethodEnums } from 'redux/actions/API';
 import authHeader from 'utils/requestHeader';
+import { AuthActionTypes, LOGIN_LOADING, USER_LOADING } from 'redux/types/AuthTypes';
 import { AUTH_URL, USER_URL } from 'Constants';
+import { LoginFormInputs } from 'components/Forms/LoginForm';
 import { User } from 'types/User';
 
 export const loginLoading = (loading: boolean): AuthActionTypes => ({ type: LOGIN_LOADING, loading });

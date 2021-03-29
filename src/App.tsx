@@ -2,15 +2,15 @@ import React from 'react';
 import Routes from 'routes';
 import { Route, Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { ToastContainer } from 'react-toastify';
 import { Integrations } from '@sentry/tracing';
 import * as Sentry from '@sentry/react';
+import 'react-toastify/dist/ReactToastify.css';
 import 'utils/i18n';
 
 import AppStateProvider from 'contexts';
-import ErrorBoundary from 'components/ErrorBoundary';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import UserProvider from './contexts/User';
+import ErrorBoundary from 'components/ErrorBoundary';
 
 const history = createBrowserHistory();
 

@@ -68,6 +68,7 @@
     "return_to_homepage": "Return to homepage",
     "feature_is_in_development": "Feature is in development",
     "server_error": "Server Error",
-    "server_error_message": "Our server goes down. We will be back soon. Be patient."
+    "server_error_message": "Our server goes down. We will be back soon. Be patient.",
+    "password_changed": "Password changed!"
   }
 }

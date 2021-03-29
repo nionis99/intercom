@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 
 import { useAppState } from 'contexts';
 import { routesData } from 'routes';
-import { logout } from 'redux/actions/AuthorizationActions';
+import { logout } from 'redux/actions/Authorization';
 import SidebarItem from './SidebarItem';
 import styles from './sidebar.module.scss';
 

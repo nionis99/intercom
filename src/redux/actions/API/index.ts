@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosResponse, Method } from 'axios';
+import axios, { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-toastify';
 import authHeader from 'utils/requestHeader';
 
@@ -17,7 +17,6 @@ const apiAction = async <D, L, S>(
   data?: D
 ) => {
   const headers = authHeader();
-  console.log(headers);
   return axios
     .request({ url, method, headers, data })
     .then(dispatchSuccess)
