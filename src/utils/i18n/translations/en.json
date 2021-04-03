@@ -67,8 +67,8 @@
     "nothing_found_message": "The page you are looking for might have been removed, had its name changed or is temporarily unavailable",
     "return_to_homepage": "Return to homepage",
     "feature_is_in_development": "Feature is in development",
-    "server_error": "Server Error",
-    "server_error_message": "Our server goes down. We will be back soon. Be patient.",
-    "password_changed": "Password changed!"
+    "password_changed": "Password changed!",
+    "internal_server_error": "Internal server error",
+    "technical_problem_message": "Our servers are facing a temporary technical problem. <p>We regret the inconvenience causes.</p><1>Please try again after some time</1>"
   }
 }

@@ -27,15 +27,15 @@ const apiAction = async <D, L, S>(
 const handleError = (error: AxiosError) => {
   if (error.response) {
     const { status, data: errorMessage } = error.response;
-    if (status === 401) removeAccess();
+    if (status === 401) removeAccessAndRedirect('/login');
     else if (status >= 500) window.location.href = '/server';
-    else toast.error(errorMessage || error.message || 'Error!');
-  } else window.location.href = '/server';
+    else toast.error(errorMessage || 'Error!');
+  } else removeAccessAndRedirect('/server');
 };
 
-const removeAccess = () => {
+const removeAccessAndRedirect = (redirectUrl: string) => {
   localStorage.setItem('accessToken', (null as unknown) as string);
-  window.location.href = '/login';
+  window.location.href = redirectUrl;
 };
 
 export default apiAction;

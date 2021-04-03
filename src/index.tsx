@@ -5,6 +5,7 @@ import store from './redux/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
+import 'utils/i18n';
 
 ReactDOM.render(
   <ReduxProvider store={store}>

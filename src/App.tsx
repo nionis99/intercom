@@ -6,7 +6,6 @@ import { ToastContainer } from 'react-toastify';
 import { Integrations } from '@sentry/tracing';
 import * as Sentry from '@sentry/react';
 import 'react-toastify/dist/ReactToastify.css';
-import 'utils/i18n';
 
 import AppStateProvider from 'contexts';
 import UserProvider from './contexts/User';

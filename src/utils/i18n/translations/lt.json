@@ -67,6 +67,8 @@
     "nothing_found_message": "Puslapis, kurio ieškote, gali būti pašalintas, jo pavadinimas buvo pakeistas arba jis laikinai nepasiekiamas",
     "return_to_homepage": "Grįžti į pradinį puslapį",
     "feature_is_in_development": "Funkcija kuriama",
-    "password_changed": "Slaptažodis pakeistas!"
+    "password_changed": "Slaptažodis pakeistas!",
+    "internal_server_error": "Vidinė serverio klaida",
+    "technical_problem_message": "Mūsų serveriai susiduria su laikina technine problema. <p>Mes apgailestaujame dėl nepatogumų.</p><1>Po kurio laiko bandykite dar kartą</1>"
   }
 }

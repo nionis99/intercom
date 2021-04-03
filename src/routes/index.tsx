@@ -12,7 +12,7 @@ import EquipmentPage from 'pages/Equipment';
 import AccessScenariosPage from 'pages/Access';
 import FakeError from 'pages/FakeError';
 import NotFoundPage from 'pages/NotFound';
-import ServerErrorPage from '../pages/ServerError';
+import ServerErrorPage from 'pages/ServerError';
 
 export const routesData = ['profile', 'members', 'equipment', 'access'];
 
