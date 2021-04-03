@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { createBrowserHistory } from 'history';
 import * as Sentry from '@sentry/react';
 import UnexpectedError from 'components/ErrorBoundary/ErrorView';
-import a from 'b';
+
 const history = createBrowserHistory({ forceRefresh: true });
 
 interface Props {

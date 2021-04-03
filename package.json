@@ -63,8 +63,7 @@
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write",
       "eslint --cache --fix"
-    ],
-    "*.js": "eslint --cache --fix"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
