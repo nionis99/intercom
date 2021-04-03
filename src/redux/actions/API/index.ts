@@ -29,8 +29,8 @@ const handleError = (error: AxiosError) => {
     const { status, data: errorMessage } = error.response;
     if (status === 401) removeAccess();
     else if (status >= 500) window.location.href = '/server';
-    else toast.error(errorMessage || 'Error!');
-  }
+    else toast.error(errorMessage || error.message || 'Error!');
+  } else toast.error(error.message || 'Error');
 };
 
 const removeAccess = () => {
