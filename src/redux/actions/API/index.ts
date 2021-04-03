@@ -30,7 +30,7 @@ const handleError = (error: AxiosError) => {
     if (status === 401) removeAccess();
     else if (status >= 500) window.location.href = '/server';
     else toast.error(errorMessage || error.message || 'Error!');
-  } else toast.error(error.message || 'Error');
+  } else window.location.href = '/server';
 };
 
 const removeAccess = () => {
