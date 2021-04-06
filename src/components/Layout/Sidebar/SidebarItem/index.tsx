@@ -18,7 +18,7 @@ const SidebarItem = ({ route }: Props) => {
         to={`/${route}`}
         activeClassName={styles.selected}
       >
-        <div className="d-flex w-100">{t(route)}</div>
+        <div className="d-flex justify-content-center w-100">{t(route)}</div>
       </NavLink>
     </li>
   );
