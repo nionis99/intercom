@@ -6,7 +6,6 @@ const initialStateUser: DoorStateType = {
 };
 
 export const DoorReducer = (state = initialStateUser, action: DoorActionTypes): DoorStateType => {
-  console.log(action, state);
   switch (action.type) {
     case DOOR_LOADING:
       return {

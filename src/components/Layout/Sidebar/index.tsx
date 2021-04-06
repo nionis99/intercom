@@ -1,23 +1,22 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Location } from '@styled-icons/entypo/Location';
 import Container from 'react-bootstrap/Container';
 
 import { useAppState } from 'contexts';
 import { routesData } from 'routes';
-import { logout } from 'redux/actions/Authorization';
+import OwnerPlaces from './Place';
 import SidebarItem from './SidebarItem';
+import { logout } from 'redux/actions/Authorization';
 import styles from './sidebar.module.scss';
 
 const Sidebar = () => {
-  const { setAccessToken } = useAppState();
   const { t } = useTranslation();
+  const { setAccessToken } = useAppState();
 
   return (
     <div className={`${styles.sidebar} border-right border-light-99 bg-light content d-none d-md-flex border`}>
       <Container className="d-flex flex-column align-items-center justify-content-center py-4 border-bottom">
-        <Location size={24} className="text-primary" />
-        <small className="mt-2 text-center font-weight-bold">Fake Address, 333-N</small>
+        <OwnerPlaces />
       </Container>
       <div className="scroll overflow-auto">
         <ul className="list-group list-group-flush h-100">

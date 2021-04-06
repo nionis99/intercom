@@ -8,3 +8,4 @@ export const USER_URL = `${BACKEND_URL}/user_owner`;
 export const AUTH_URL = `${BACKEND_URL}/auth`;
 export const GET_ACCOUNT_ITEMS = `${BACKEND_URL}/account_owner/items`;
 export const GET_DOORS = `${BACKEND_URL}/door_owner/items`;
+export const GET_OWNER_PLACES = `${BACKEND_URL}/flat_owner/items`;
