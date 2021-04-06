@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PersonAdd } from 'styled-icons/material-rounded';
 import Card from 'react-bootstrap/Card';
+
 import LayoutContainer from 'components/Layout';
 import MembersListTable from 'components/Tables/MembersTable';
 

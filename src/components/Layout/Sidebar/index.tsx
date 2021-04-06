@@ -27,10 +27,7 @@ const Sidebar = () => {
           <SidebarItem route="error" />
           <li className="list-group-item p-0 border-bottom">
             <div className={`d-flex py-2 px-2 ${styles.link}`}>
-              <div
-                className="d-flex w-100  justify-content-center text-danger cursor-pointer"
-                onClick={() => logout(setAccessToken)}
-              >
+              <div className="d-flex w-100 text-danger cursor-pointer" onClick={() => logout(setAccessToken)}>
                 {t('logout')}
               </div>
             </div>

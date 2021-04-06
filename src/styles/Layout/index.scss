@@ -39,3 +39,9 @@ button:focus {
 .Toastify__toast--error{
   background: $colorRed;
 }
+
+.cardContent{
+  @include media-breakpoint-up(md) {
+    max-width: calc(100vw - 300px);
+  }
+}

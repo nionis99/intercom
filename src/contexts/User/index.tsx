@@ -15,7 +15,13 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
     if (accessToken) dispatch(getUser(setUser));
   }, [accessToken, dispatch, setUser]);
 
-  if (authorizationLoading) return <LoadingView />;
+  if (authorizationLoading) {
+    return (
+      <div className="d-flex w-100 vh-100">
+        <LoadingView />
+      </div>
+    );
+  }
 
   if (accessToken && !user) return null;
 

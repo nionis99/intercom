@@ -14,7 +14,7 @@ import FakeError from 'pages/FakeError';
 import NotFoundPage from 'pages/NotFound';
 import ServerErrorPage from 'pages/ServerError';
 
-export const routesData = ['profile', 'members', 'equipment', 'access'];
+export const routesData = ['profile', 'members', 'access', 'equipment'];
 
 const Routes = () => (
   <div className="d-flex flex-column flex-md-row full-height">

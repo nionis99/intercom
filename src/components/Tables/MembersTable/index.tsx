@@ -34,7 +34,7 @@ const FamilyMembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreat
   }
 
   return (
-    <>
+    <div className="overflow-auto">
       {/*<CreateCardModal show={isOpenCreateCardModal} handleClose={() => setIsOpenCreateCardModal(false)} />*/}
       <Table borderless hover responsive="sm">
         <thead>
@@ -66,7 +66,7 @@ const FamilyMembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreat
         confirmText={t('delete')}
         handleClose={() => setDeletingCardId(null)}
       />
-    </>
+    </div>
   );
 };
 
