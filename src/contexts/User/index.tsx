@@ -7,16 +7,20 @@ import { getPlaces } from 'redux/actions/Place';
 import { getUser } from 'redux/actions/Authorization';
 import useLocalStorage from 'hooks/useLocalStorage';
 import LoadingView from 'components/Loading';
+import { Maybe } from 'types';
 
 interface UserStateContextType {
-  selectedProject: string | null;
-  selectedAddress: string | null;
-  selectedHouse: string | null;
-  selectedFlat: string | null;
-  setSelectedProject: React.Dispatch<SetStateAction<string | null>>;
-  setSelectedAddress: React.Dispatch<SetStateAction<string | null>>;
-  setSelectedHouse: React.Dispatch<SetStateAction<string | null>>;
-  setSelectedFlat: React.Dispatch<SetStateAction<string | null>>;
+  selectedProject: Maybe<string>;
+  selectedAddress: Maybe<string>;
+  selectedHouse: Maybe<string>;
+  selectedFlat: Maybe<string>;
+  selectedFlatId: Maybe<string>;
+
+  setSelectedProject: React.Dispatch<SetStateAction<Maybe<string>>>;
+  setSelectedAddress: React.Dispatch<SetStateAction<Maybe<string>>>;
+  setSelectedHouse: React.Dispatch<SetStateAction<Maybe<string>>>;
+  setSelectedFlat: React.Dispatch<SetStateAction<Maybe<string>>>;
+  setSelectedFlatId: React.Dispatch<SetStateAction<Maybe<string>>>;
 }
 
 export const UserStateContext = createContext<UserStateContextType | null>(null);
@@ -30,6 +34,7 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
   const [selectedAddress, setSelectedAddress] = useLocalStorage('address', null);
   const [selectedHouse, setSelectedHouse] = useLocalStorage('house', null);
   const [selectedFlat, setSelectedFlat] = useLocalStorage('flat', null);
+  const [selectedFlatId, setSelectedFlatId] = useLocalStorage('flatId', null);
 
   useEffect(() => {
     if (accessToken) dispatch(getUser(setUser));
@@ -54,10 +59,12 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
     selectedAddress,
     selectedHouse,
     selectedFlat,
+    selectedFlatId,
     setSelectedProject,
     setSelectedAddress,
     setSelectedHouse,
     setSelectedFlat,
+    setSelectedFlatId,
   } as UserStateContextType;
 
   return <UserStateContext.Provider value={{ ...contextValue }}>{children}</UserStateContext.Provider>;

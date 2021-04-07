@@ -12,7 +12,7 @@ import Loading from 'components/Loading';
 const OwnerPlaces = () => {
   const { t } = useTranslation();
   const { placeLoading, placeData } = useStateSelector((state) => state.place);
-  const { selectedProject, selectedAddress, selectedHouse, selectedFlat, setSelectedFlat } = useUserState();
+  const { selectedProject, selectedAddress, selectedHouse, selectedFlat } = useUserState();
 
   const {
     uniqueProjects,
@@ -22,12 +22,13 @@ const OwnerPlaces = () => {
     changeProject,
     changeAddress,
     changeHouseNumber,
+    changeFlatNumber,
   } = usePlaceValues(placeData);
 
   const onChangeProject = (event: ChangeEvent<HTMLInputElement>) => changeProject(event.target.value);
   const onChangeAddress = (event: ChangeEvent<HTMLInputElement>) => changeAddress(event.target.value);
   const onChangeHouseNumber = (event: ChangeEvent<HTMLInputElement>) => changeHouseNumber(event.target.value);
-  const onChangeFlatNumber = (event: ChangeEvent<HTMLInputElement>) => setSelectedFlat(event.target.value);
+  const onChangeFlatNumber = (event: ChangeEvent<HTMLInputElement>) => changeFlatNumber(event.target.value);
 
   if (placeLoading) return <Loading />;
 

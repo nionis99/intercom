@@ -4,7 +4,14 @@ import { useUserState } from 'contexts/User';
 import Place from 'types/Place';
 
 export const usePlaceValues = (placeData: Place[]) => {
-  const { selectedProject, setSelectedProject, setSelectedAddress, setSelectedHouse, setSelectedFlat } = useUserState();
+  const {
+    selectedProject,
+    setSelectedProject,
+    setSelectedAddress,
+    setSelectedHouse,
+    setSelectedFlat,
+    setSelectedFlatId,
+  } = useUserState();
 
   const uniqueProjects = useMemo(() => [...new Set(placeData.map((place) => place.project))], [placeData]);
 
@@ -23,14 +30,28 @@ export const usePlaceValues = (placeData: Place[]) => {
     [placeData, selectedProject]
   );
 
+  const getFlatId = useCallback(
+    (value: string) => placeData.find((place) => place.project === value)?.id.toString() || '',
+    [placeData]
+  );
+
   useEffect(() => {
     if (!selectedProject && placeData.length !== 0) {
       setSelectedProject(placeData[0].project);
       setSelectedAddress(placeData[0].street);
       setSelectedHouse(placeData[0].house_no);
       setSelectedFlat(placeData[0].flat_no);
+      setSelectedFlatId(placeData[0].id.toString());
     }
-  }, [placeData, selectedProject, setSelectedAddress, setSelectedFlat, setSelectedHouse, setSelectedProject]);
+  }, [
+    placeData,
+    selectedProject,
+    setSelectedAddress,
+    setSelectedFlat,
+    setSelectedFlatId,
+    setSelectedHouse,
+    setSelectedProject,
+  ]);
 
   const changeProject = useCallback(
     (value: string) => {
@@ -38,25 +59,36 @@ export const usePlaceValues = (placeData: Place[]) => {
       setSelectedAddress(placeData.find((place) => place.project === value)?.street || '');
       setSelectedHouse(placeData.find((place) => place.project === value)?.house_no || '');
       setSelectedFlat(placeData.find((place) => place.project === value)?.flat_no || '');
+      setSelectedFlatId(getFlatId(value));
     },
-    [placeData, setSelectedAddress, setSelectedFlat, setSelectedHouse, setSelectedProject]
+    [getFlatId, placeData, setSelectedAddress, setSelectedFlat, setSelectedFlatId, setSelectedHouse, setSelectedProject]
   );
 
   const changeAddress = useCallback(
     (value: string) => {
       setSelectedAddress(value);
-      setSelectedHouse(placeData.find((place) => place.project === value)?.house_no || '');
-      setSelectedFlat(placeData.find((place) => place.project === value)?.flat_no || '');
+      setSelectedHouse(placeData.find((place) => place.street === value)?.house_no || '');
+      setSelectedFlat(placeData.find((place) => place.street === value)?.flat_no || '');
+      setSelectedFlatId(placeData.find((place) => place.street === value)?.id.toString() || '');
     },
-    [placeData, setSelectedAddress, setSelectedFlat, setSelectedHouse]
+    [placeData, setSelectedAddress, setSelectedFlat, setSelectedFlatId, setSelectedHouse]
   );
 
   const changeHouseNumber = useCallback(
     (value: string) => {
       setSelectedHouse(value);
-      setSelectedFlat(placeData.find((place) => place.project === value)?.flat_no || '');
+      setSelectedFlat(placeData.find((place) => place.house_no === value)?.flat_no || '');
+      setSelectedFlatId(placeData.find((place) => place.house_no === value)?.id.toString() || '');
     },
-    [placeData, setSelectedFlat, setSelectedHouse]
+    [placeData, setSelectedFlat, setSelectedFlatId, setSelectedHouse]
+  );
+
+  const changeFlatNumber = useCallback(
+    (value: string) => {
+      setSelectedFlat(value);
+      setSelectedFlatId(placeData.find((place) => place.flat_no === value)?.id.toString() || '');
+    },
+    [placeData, setSelectedFlat, setSelectedFlatId]
   );
 
   return {
@@ -67,5 +99,6 @@ export const usePlaceValues = (placeData: Place[]) => {
     changeProject,
     changeAddress,
     changeHouseNumber,
+    changeFlatNumber,
   };
 };

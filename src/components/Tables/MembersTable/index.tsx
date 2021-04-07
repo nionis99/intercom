@@ -1,12 +1,13 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Table from 'react-bootstrap/Table';
+
 import LoadingView from 'components/Loading';
 import EmptyDataView from 'components/EmptyDataView';
 import DeleteCardConfirmation from 'components/Modals/Confirmation/Delete';
-import CreateCardModal from 'components/Modals/CreateCard';
-import EditCardModal from 'components/Modals/EditCard';
-import MemberItem from './MemberItem';
+// import CreateCardModal from 'components/Modals/CreateCard';
+// import EditCardModal from 'components/Modals/EditCard';
+// import MemberItem from './MemberItem';
 import { Member } from 'types';
 
 const fakeData: Member[] = [
@@ -22,10 +23,10 @@ interface Props {
   setIsOpenCreateCardModal: Dispatch<SetStateAction<boolean>>;
 }
 
-const FamilyMembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreateCardModal }: Props) => {
+const FamilyMembersListTable = ({ loading }: Props) => {
   const { t } = useTranslation();
   const [deletingCardId, setDeletingCardId] = useState<string | null>(null);
-  const [editingCard, setEditingCard] = useState<Member | null>(null);
+  // const [editingCard, setEditingCard] = useState<Member | null>(null);
 
   if (loading) return <LoadingView />;
 
@@ -46,16 +47,16 @@ const FamilyMembersListTable = ({ loading, isOpenCreateCardModal, setIsOpenCreat
             <th className="font-weight-normal">{t('actions')}</th>
           </tr>
         </thead>
-        <tbody>
-          {fakeData.map((member) => (
-            <MemberItem
-              key={member.id}
-              member={member}
-              setDeletingCardId={setDeletingCardId}
-              setEditingCard={setEditingCard}
-            />
-          ))}
-        </tbody>
+        {/*<tbody>*/}
+        {/*  {fakeData.map((member) => (*/}
+        {/*    <MemberItem*/}
+        {/*      key={member.id}*/}
+        {/*      member={member}*/}
+        {/*      setDeletingCardId={setDeletingCardId}*/}
+        {/*      setEditingCard={setEditingCard}*/}
+        {/*    />*/}
+        {/*  ))}*/}
+        {/*</tbody>*/}
       </Table>
       {/*{!!editingCard && (*/}
       {/*  <EditCardModal show={!!editingCard} editingCard={editingCard} handleClose={() => setEditingCard(null)} />*/}
