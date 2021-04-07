@@ -5,14 +5,6 @@ export type Equipment = {
   status: boolean;
 };
 
-export type Member = {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  cards: number;
-};
-
 export type Card = {
   id: string;
   cardNumber: string;

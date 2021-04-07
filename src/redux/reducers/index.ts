@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import { OwnerPlaceReducer } from './OwnerPlace';
+import { MembersReducer } from './Members';
 import { AuthReducer } from './Authorization';
 import { UserReducer } from './User';
-import { OwnerPlaceReducer } from './OwnerPlace';
 import { DoorReducer } from './Door';
 
 const rootReducer = combineReducers({
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   user: UserReducer,
   doors: DoorReducer,
   place: OwnerPlaceReducer,
+  members: MembersReducer,
 });
 
 export default rootReducer;

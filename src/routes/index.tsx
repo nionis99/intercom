@@ -7,7 +7,8 @@ import UnauthorizedRoute from 'routes/Unauthorized';
 import LoginPage from 'pages/Login';
 import DashboardPage from 'pages/Dashboard';
 import ProfilePage from 'pages/Profile';
-import FamilyMembersPage from 'pages/FamilyMembers';
+import MembersPage from 'pages/Members';
+import MemberPage from 'pages/Member';
 import EquipmentPage from 'pages/Equipment';
 import AccessScenariosPage from 'pages/Access';
 import FakeError from 'pages/FakeError';
@@ -30,7 +31,10 @@ const Routes = () => (
           <ProfilePage />
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/members">
-          <FamilyMembersPage />
+          <MembersPage />
+        </AuthorizedRoute>
+        <AuthorizedRoute exact path="/members/:id">
+          <MemberPage />
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/equipment">
           <EquipmentPage />

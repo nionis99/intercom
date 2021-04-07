@@ -10,7 +10,7 @@ interface Props {
   confirmText: string;
   onSubmitClick: () => void;
   onResetClick: () => void;
-  isLoading?: boolean;
+  isLoading: boolean;
 }
 
 const ModalOfConfirmation = ({ title, confirmText, onSubmitClick, onResetClick, isLoading }: Props) => {

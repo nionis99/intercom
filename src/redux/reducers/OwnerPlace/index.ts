@@ -1,4 +1,4 @@
-import { PlaceStateType, PLACE_LOADING, PlaceActionTypes, PLACE_DATA } from '../../types/PlaceTypes';
+import { PlaceStateType, PLACE_LOADING, PlaceActionTypes, PLACE_DATA } from 'redux/types/PlaceTypes';
 
 const initialStateUser: PlaceStateType = {
   placeLoading: false,

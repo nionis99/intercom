@@ -3,12 +3,13 @@ import moment from 'moment';
 
 import useLocalStorage from 'hooks/useLocalStorage';
 import { DEFAULT_LANGUAGE } from 'Constants';
-import { User } from 'types/User';
+import { User, UserRoleEnum } from 'types/User';
 
 interface StateContextType {
   user: User | null;
   accessToken: string;
   isAuthenticated: boolean;
+  isAdmin: boolean;
 
   setUser: React.Dispatch<SetStateAction<User | null>>;
   setAccessToken: React.Dispatch<SetStateAction<string | null>>;
@@ -27,12 +28,14 @@ export default function AppStateProvider({ children }: Props) {
   moment.locale(currentLocale || DEFAULT_LANGUAGE);
 
   const isAuthenticated = !!accessToken && !!user;
+  const isAdmin = user?.role === UserRoleEnum.ADMIN;
 
   const contextValue = {
     isAuthenticated,
     accessToken,
     setAccessToken,
     user,
+    isAdmin,
     setUser,
   } as StateContextType;
 

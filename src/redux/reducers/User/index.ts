@@ -1,4 +1,4 @@
-import { CHANGE_PASSWORD_LOADING, UserActionTypes, UserStateType } from '../../types/UserTypes';
+import { CHANGE_PASSWORD_LOADING, UserActionTypes, UserStateType } from 'redux/types/UserTypes';
 
 const initialStateUser: UserStateType = {
   changePasswordLoading: false,

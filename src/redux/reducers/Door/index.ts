@@ -1,4 +1,4 @@
-import { DOOR_LOADING, DoorActionTypes, DoorStateType, DOOR_DATA } from '../../types/DoorTypes';
+import { DOOR_LOADING, DoorActionTypes, DoorStateType, DOOR_DATA } from 'redux/types/DoorTypes';
 
 const initialStateUser: DoorStateType = {
   doorsLoading: false,

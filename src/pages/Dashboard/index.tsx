@@ -1,7 +1,8 @@
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
-import LayoutContainer from 'components/Layout';
 import Container from 'react-bootstrap/Container';
+
+import LayoutContainer from 'components/Layout';
 
 const DashboardPage = () => {
   useTranslation();
