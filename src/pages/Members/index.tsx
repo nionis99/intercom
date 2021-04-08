@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 
 import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
-import { getMembers } from 'redux/actions/Member';
+import { getMembers } from 'redux/actions/Members';
 import LayoutContainer from 'components/Layout';
 import MembersListTable from 'components/Tables/MembersTable';
 

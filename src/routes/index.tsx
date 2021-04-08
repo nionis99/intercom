@@ -33,7 +33,7 @@ const Routes = () => (
         <AuthorizedRoute exact path="/members">
           <MembersPage />
         </AuthorizedRoute>
-        <AuthorizedRoute exact path="/members/:id">
+        <AuthorizedRoute exact path="/members/:memberId">
           <MemberPage />
         </AuthorizedRoute>
         <AuthorizedRoute exact path="/equipment">

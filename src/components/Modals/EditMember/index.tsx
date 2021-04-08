@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { useStateSelector } from 'hooks/useReduxStateSelector';
-import { updateMember } from 'redux/actions/Member';
+import { updateMember } from 'redux/actions/Members';
 import MemberForm, { MemberFormInputs } from 'components/Forms/MemberForm';
 import ModalContainer from 'components/Modals';
 import Member from 'types/Member';

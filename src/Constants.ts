@@ -11,3 +11,4 @@ export const MEMBERS = `${BACKEND_URL}/account_owner`;
 export const GET_MEMBERS = `${MEMBERS}/items`;
 export const GET_DOORS = `${BACKEND_URL}/door_owner/items`;
 export const GET_OWNER_PLACES = `${BACKEND_URL}/flat_owner/items`;
+export const GET_CARDS = `${BACKEND_URL}/card_owner/items`;

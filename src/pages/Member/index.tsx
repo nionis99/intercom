@@ -1,31 +1,32 @@
-import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { useTranslation } from 'react-i18next';
-// import { PersonAdd } from 'styled-icons/material-rounded';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 
-// import { useStateSelector } from 'hooks/useReduxStateSelector';
+import { useStateSelector } from 'hooks/useReduxStateSelector';
+import { getMember } from 'redux/actions/Member';
 import LayoutContainer from 'components/Layout';
-// import MembersListTable from 'components/Tables/MembersTable';
-//
-// interface MemberRouteParams {
-//   memberId: string;
-// }
+import MemberInfo from 'components/MemberInfo';
+
+interface MemberRouteParams {
+  memberId: string;
+}
 
 const MemberPage = () => {
-  // const dispatch = useDispatch();
-  // const { t } = useTranslation();
-  // const { memberId } = useRouteParams<MemberRouteParams>();
-  // const { memberLoading, memberData } = useStateSelector((state) => state.member);
+  const dispatch = useDispatch();
+  const { memberId } = useParams<MemberRouteParams>();
+  const { memberLoading, memberData } = useStateSelector((state) => state.member);
 
-  // useEffect(() => {
-  //   dispatch(getMember(memberId));
-  // }, [dispatch, memberId]);
+  useEffect(() => {
+    dispatch(getMember(memberId));
+  }, [dispatch, memberId]);
 
   return (
-    <LayoutContainer>
-      <Card.Header className="d-flex align-items-center font-weight-bold"></Card.Header>
-      <Card.Body className="h-100 overflow-auto"></Card.Body>
+    <LayoutContainer loading={memberLoading}>
+      <Card.Header className="d-flex align-items-center font-weight-bold">{memberData?.name}</Card.Header>
+      <Card.Body className="h-100 overflow-auto">
+        <MemberInfo member={memberData} />
+      </Card.Body>
     </LayoutContainer>
   );
 };

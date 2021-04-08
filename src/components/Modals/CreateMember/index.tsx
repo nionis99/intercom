@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
-import { createMember } from 'redux/actions/Member';
+import { createMember } from 'redux/actions/Members';
 import ModalContainer from 'components/Modals';
 import MemberForm, { MemberFormInputs } from 'components/Forms/MemberForm';
 

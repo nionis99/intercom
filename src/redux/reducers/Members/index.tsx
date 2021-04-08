@@ -9,7 +9,7 @@ import {
   MembersStateType,
   UPDATE_MEMBER_LOADING,
   UPDATE_MEMBER_DATA,
-} from 'redux/types/MemberTypes';
+} from 'redux/types/MembersTypes';
 
 const initialStateUsers: MembersStateType = {
   deleteLoading: false,

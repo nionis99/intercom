@@ -26,7 +26,7 @@ export interface MemberFormInputs {
 
 const memberSchema = yup.object().shape({
   is_active: yup.boolean(),
-  name: yup.string().trim(),
+  name: yup.string().required('name_required').trim(),
   email: yup.string().email(),
   phone: yup.string().phoneNumber(),
   note: yup.string().trim(),

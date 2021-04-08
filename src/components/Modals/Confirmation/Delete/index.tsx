@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { useStateSelector } from 'hooks/useReduxStateSelector';
-import { deleteMember } from 'redux/actions/Member';
+import { deleteMember } from 'redux/actions/Members';
 import ModalOfConfirmation from 'components/Modals/Confirmation';
 
 interface Props {
