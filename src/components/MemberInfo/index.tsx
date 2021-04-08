@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
@@ -14,7 +15,6 @@ import CreateCardModal from 'components/Modals/CreateCard';
 import { getCards } from 'redux/actions/Cards';
 import { Maybe } from 'types';
 import Member from 'types/Member';
-import { useParams } from 'react-router-dom';
 
 interface MemberRouteParams {
   memberId: string;
