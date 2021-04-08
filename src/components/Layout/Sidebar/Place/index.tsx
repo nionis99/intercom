@@ -25,10 +25,10 @@ const OwnerPlaces = () => {
     changeFlatNumber,
   } = usePlaceValues(placeData);
 
-  const onChangeProject = (event: ChangeEvent<HTMLInputElement>) => changeProject(event.target.value);
-  const onChangeAddress = (event: ChangeEvent<HTMLInputElement>) => changeAddress(event.target.value);
-  const onChangeHouseNumber = (event: ChangeEvent<HTMLInputElement>) => changeHouseNumber(event.target.value);
-  const onChangeFlatNumber = (event: ChangeEvent<HTMLInputElement>) => changeFlatNumber(event.target.value);
+  const onChangeProject = (event: ChangeEvent<HTMLSelectElement>) => changeProject(event.target.value);
+  const onChangeAddress = (event: ChangeEvent<HTMLSelectElement>) => changeAddress(event.target.value);
+  const onChangeHouseNumber = (event: ChangeEvent<HTMLSelectElement>) => changeHouseNumber(event.target.value);
+  const onChangeFlatNumber = (event: ChangeEvent<HTMLSelectElement>) => changeFlatNumber(event.target.value);
 
   if (placeLoading) return <Loading />;
 

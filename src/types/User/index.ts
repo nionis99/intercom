@@ -5,7 +5,7 @@ export enum UserRoleEnum {
   ADMIN = 'admin',
 }
 
-export interface User extends DateTime {
+export default interface User extends DateTime {
   id: number;
   login: string;
   password: string;

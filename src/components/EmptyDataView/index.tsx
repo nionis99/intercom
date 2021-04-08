@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import { QuestionCircleFill } from '@styled-icons/bootstrap';
+import { Search } from 'styled-icons/material-rounded';
 
 interface Props {
   text: string;
@@ -9,7 +9,7 @@ interface Props {
 
 const EmptyDataView = ({ text, centered = false }: Props) => (
   <Container className={`d-flex h-100 flex-column ${centered ? 'justify-content-center' : ''} align-items-center`}>
-    <QuestionCircleFill size={40} className="mb-2" />
+    <Search size={50} className="my-2" />
     <h5>{text}</h5>
   </Container>
 );

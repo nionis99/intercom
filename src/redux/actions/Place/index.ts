@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { AxiosResponse } from 'axios';
 
 import apiAction, { ApiMethodEnums } from 'redux/actions/API';
-import { PLACE_DATA, PLACE_LOADING, PlaceActionTypes } from '../../types/PlaceTypes';
+import { PLACE_DATA, PLACE_LOADING, PlaceActionTypes } from 'redux/types/PlaceTypes';
 import { GET_OWNER_PLACES } from 'Constants';
 import Place from 'types/Place';
 

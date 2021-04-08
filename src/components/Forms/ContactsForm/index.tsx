@@ -9,28 +9,30 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 
 import yup, { formatPhoneNumber } from 'utils/yup';
-import { Contacts } from 'types';
 
 export interface ChangeContactsInputs {
-  username: string;
+  id: number;
+  name: string;
   email: string;
-  phoneNumber: string;
+  phone: string;
 }
 
 const contactsSchema = yup.object().shape({
-  username: yup.string().required('name_required_error').trim(),
-  email: yup.string().email().required('email_required'),
-  phoneNumber: yup.string().phoneNumber().required('phone_number_required'),
+  name: yup.string().required('name_required_error').trim(),
+  email: yup.string().email('email_format'),
+  phone: yup.string().phoneNumber(),
 });
 
 interface Props {
-  contacts: Contacts;
+  name: string;
+  email: string;
+  phone: string;
   onSubmit: (data: ChangeContactsInputs) => void;
   handleClose: () => void;
   loading: boolean;
 }
 
-const ChangeContactsForm = ({ contacts, onSubmit, handleClose, loading }: Props) => {
+const ChangeContactsForm = ({ name, email, phone, onSubmit, handleClose, loading }: Props) => {
   const { t } = useTranslation();
 
   const { handleSubmit, register, errors, setValue } = useForm<ChangeContactsInputs>({
@@ -40,24 +42,22 @@ const ChangeContactsForm = ({ contacts, onSubmit, handleClose, loading }: Props)
 
   const onPhoneNumberChange = (e: ChangeEvent<HTMLInputElement>) => {
     const formattedPhoneNumber = formatPhoneNumber(e.target.value);
-    setValue('phoneNumber', formattedPhoneNumber);
+    setValue('phone', formattedPhoneNumber);
   };
 
   return (
     <Form noValidate onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column w-100 align-items-center mb-2">
       <Form.Group className="w-100 mb-2">
-        <Form.Label>{t('username')}</Form.Label>
+        <Form.Label>{t('name')}</Form.Label>
         <Form.Control
           ref={register}
-          placeholder={t('username')}
-          name="username"
+          placeholder={t('name')}
+          name="name"
           type="text"
-          defaultValue={contacts.username}
-          isInvalid={!!errors.username}
+          defaultValue={name}
+          isInvalid={!!errors.name}
         />
-        <Form.Control.Feedback type="invalid">
-          {errors.username?.message && t(errors.username.message)}
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{errors.name?.message && t(errors.name.message)}</Form.Control.Feedback>
       </Form.Group>
       <Form.Group className="w-100 mb-2">
         <Form.Label>{t('email')}</Form.Label>
@@ -66,26 +66,22 @@ const ChangeContactsForm = ({ contacts, onSubmit, handleClose, loading }: Props)
           placeholder={t('email')}
           name="email"
           type="text"
-          defaultValue={contacts.email}
+          defaultValue={email}
           isInvalid={!!errors.email}
         />
-        <Form.Control.Feedback type="invalid">
-          {errors.username?.message && t(errors.username.message)}
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{errors.email?.message && t(errors.email.message)}</Form.Control.Feedback>
       </Form.Group>
       <Form.Group className="w-100 mb-2">
-        <Form.Label>{t('phone_number')}</Form.Label>
+        <Form.Label>{t('phone')}</Form.Label>
         <Form.Control
           ref={register}
-          name="phoneNumber"
-          defaultValue={contacts.phoneNumber}
-          placeholder={t('phone_number')}
+          name="phone"
+          defaultValue={phone}
+          placeholder={t('phone')}
           onChange={onPhoneNumberChange}
-          isInvalid={!!errors.phoneNumber}
+          isInvalid={!!errors.phone}
         />
-        <Form.Control.Feedback type="invalid">
-          {errors.phoneNumber?.message && t(errors.phoneNumber.message)}
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{errors.phone?.message && t(errors.phone.message)}</Form.Control.Feedback>
       </Form.Group>
       <div className="w-100 my-2">
         <Row>

@@ -1,21 +1,30 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+
+import { useStateSelector } from 'hooks/useReduxStateSelector';
+import { updateMemberContacts } from 'redux/actions/Member';
 import ChangeContactsForm, { ChangeContactsInputs } from 'components/Forms/ContactsForm';
 import ModalContainer from 'components/Modals';
-import { Contacts } from 'types';
 
 interface Props {
   show: boolean;
-  contacts: Contacts;
+  memberId: number;
+  name: string;
+  email: string;
+  phone: string;
   handleClose: () => void;
 }
 
-const ChangeContactsModal = ({ show, contacts, handleClose }: Props) => {
+const ChangeContactsModal = ({ show, memberId, name, email, phone, handleClose }: Props) => {
   const { t } = useTranslation();
-  const loading = false;
+  const dispatch = useDispatch();
+  const { memberContactsLoading } = useStateSelector((state) => state.member);
 
-  const onSubmit = (data: ChangeContactsInputs) => {
-    console.log(data);
+  const responseText = t('updated_contacts');
+
+  const onSubmit = async (data: ChangeContactsInputs) => {
+    await dispatch(updateMemberContacts(data, memberId, responseText));
     handleClose();
   };
 
@@ -24,7 +33,14 @@ const ChangeContactsModal = ({ show, contacts, handleClose }: Props) => {
   return (
     <ModalContainer title={t('change_contacts')} isActive={show} centered handleClose={handleClose}>
       <div className="h-100 w-100 d-flex">
-        <ChangeContactsForm contacts={contacts} onSubmit={onSubmit} loading={loading} handleClose={handleClose} />
+        <ChangeContactsForm
+          name={name}
+          email={email}
+          phone={phone}
+          onSubmit={onSubmit}
+          loading={memberContactsLoading}
+          handleClose={handleClose}
+        />
       </div>
     </ModalContainer>
   );

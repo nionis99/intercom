@@ -10,7 +10,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import { changePassword } from 'redux/actions/User';
-import { User } from 'types/User';
+import User from 'types/User';
 import yup from 'utils/yup';
 
 export interface ProfileFormInputs {
@@ -31,7 +31,7 @@ const UserInfo = ({ user }: Props) => {
   const { changePasswordLoading } = useStateSelector((state) => state.user);
 
   const { handleSubmit, errors, register, formState } = useForm<ProfileFormInputs>({
-    mode: 'all',
+    mode: 'onSubmit',
     resolver: yupResolver(profileSchema),
   });
 

@@ -11,16 +11,21 @@ import Spinner from 'react-bootstrap/Spinner';
 import yup from 'utils/yup';
 
 export interface ChangePinInput {
-  pinCode: string;
+  id: number;
+  pin: string;
 }
 
 const pinCodeSchema = yup.object().shape({
-  pinCode: yup.string().required('required_pin_code').trim(),
+  pin: yup
+    .string()
+    .required('required_pin_code')
+    .matches(/^[0-9]*$/, 'pin_format')
+    .trim(),
 });
 
 interface Props {
   pinCode: string;
-  onSubmit: (data: ChangePinInput) => void;
+  onSubmit: (data: ChangePinInput) => Promise<void>;
   handleClose: () => void;
   loading: boolean;
 }
@@ -40,14 +45,12 @@ const ChangePinForm = ({ pinCode, onSubmit, handleClose, loading }: Props) => {
         <Form.Control
           ref={register}
           placeholder={t('pin_code')}
-          name="pinCode"
+          name="pin"
           type="text"
           defaultValue={pinCode}
-          isInvalid={!!errors.pinCode}
+          isInvalid={!!errors.pin}
         />
-        <Form.Control.Feedback type="invalid">
-          {errors.pinCode?.message && t(errors.pinCode.message)}
-        </Form.Control.Feedback>
+        <Form.Control.Feedback type="invalid">{errors.pin?.message && t(errors.pin.message)}</Form.Control.Feedback>
       </Form.Group>
       <div className="w-100 my-2">
         <Row>

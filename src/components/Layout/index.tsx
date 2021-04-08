@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Card } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
 
 import LayoutHeader from 'components/Layout/Header';
 import LoadingView from 'components/Loading';

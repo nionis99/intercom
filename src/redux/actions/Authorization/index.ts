@@ -7,7 +7,7 @@ import authHeader from 'utils/requestHeader';
 import { AuthActionTypes, LOGIN_LOADING, USER_LOADING } from 'redux/types/AuthTypes';
 import { AUTH_URL, USER_URL } from 'Constants';
 import { LoginFormInputs } from 'components/Forms/LoginForm';
-import { User } from 'types/User';
+import User from 'types/User';
 
 export const loginLoading = (loading: boolean): AuthActionTypes => ({ type: LOGIN_LOADING, loading });
 export const getUserLoading = (loading: boolean): AuthActionTypes => ({ type: USER_LOADING, loading });

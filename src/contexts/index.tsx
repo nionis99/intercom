@@ -3,7 +3,7 @@ import moment from 'moment';
 
 import useLocalStorage from 'hooks/useLocalStorage';
 import { DEFAULT_LANGUAGE } from 'Constants';
-import { User, UserRoleEnum } from 'types/User';
+import User, { UserRoleEnum } from 'types/User';
 
 interface StateContextType {
   user: User | null;

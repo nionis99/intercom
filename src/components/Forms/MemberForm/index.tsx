@@ -27,10 +27,14 @@ export interface MemberFormInputs {
 const memberSchema = yup.object().shape({
   is_active: yup.boolean(),
   name: yup.string().required('name_required').trim(),
-  email: yup.string().email(),
+  email: yup.string().email('email_format'),
   phone: yup.string().phoneNumber(),
   note: yup.string().trim(),
-  pin: yup.string().required(),
+  pin: yup
+    .string()
+    .required('required_pin_code')
+    .matches(/^[0-9]*$/, 'pin_format')
+    .trim(),
 });
 
 interface Props {

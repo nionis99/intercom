@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import { useAppState } from 'contexts';
 import LoadingView from 'components/Loading';
 import EmptyDataView from 'components/EmptyDataView';
-import DeleteMemberConfirmation from 'components/Modals/Confirmation/Delete';
+import DeleteMemberConfirmation from 'components/Modals/Confirmation/Delete/Member';
 import CreateMemberModal from 'components/Modals/CreateMember';
 import EditMemberModal from 'components/Modals/EditMember';
 import MemberItem from './MemberItem';

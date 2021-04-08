@@ -14,7 +14,7 @@ interface Props {
   isAdmin: boolean;
 }
 
-const FamilyMemberItem = ({ member, setDeletingMemberId, setEditingMember, isAdmin }: Props) => {
+const MemberItem = ({ member, setDeletingMemberId, setEditingMember, isAdmin }: Props) => {
   const { t } = useTranslation();
 
   return (
@@ -48,4 +48,4 @@ const FamilyMemberItem = ({ member, setDeletingMemberId, setEditingMember, isAdm
   );
 };
 
-export default FamilyMemberItem;
+export default MemberItem;

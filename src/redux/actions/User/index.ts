@@ -2,8 +2,8 @@ import { Dispatch } from 'redux';
 import { toast } from 'react-toastify';
 
 import apiAction, { ApiMethodEnums } from 'redux/actions/API';
-import { ProfileFormInputs } from 'components/UserInfo';
 import { CHANGE_PASSWORD_LOADING, UserActionTypes } from 'redux/types/UserTypes';
+import { ProfileFormInputs } from 'components/UserInfo';
 import { USER_URL } from 'Constants';
 
 export const changePasswordLoading = (loading: boolean): UserActionTypes => ({

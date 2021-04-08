@@ -10,7 +10,7 @@ const DoorItem = ({ door }: Props) => (
     <td>{door.name}</td>
     <td>{door.type}</td>
     <td>{door.project}</td>
-    <td>{door.note}</td>
+    <td>{door.note || '-'}</td>
   </tr>
 );
 
