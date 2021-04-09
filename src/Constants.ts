@@ -1,7 +1,7 @@
 export const DEFAULT_LANGUAGE = 'lt';
 export const DEFAULT_MEMBER_NAME = 'user';
 
-export const API = 'http://intercom.ntt.lt/api';
+export const API = 'http://intercom.ntt.lt:80/api';
 export const API_VERSION = 'v1';
 export const BACKEND_URL = `${API}/${API_VERSION}`;
 
