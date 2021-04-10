@@ -6,7 +6,6 @@
     "username": "Vartotojo vardas",
     "password": "Slaptažodis",
     "name_required_error": "Vartotojo vardas privalomas",
-    "password_required_error": "Slaptažodis privalomas",
     "login": "Prisijungti",
     "logout": "Atsijungti",
     "welcome": "Sveiki atvykę į <0>išmaniųjų</0> domofonų savitarną",

@@ -6,7 +6,6 @@
     "username": "Username",
     "password": "Password",
     "name_required_error": "Username is required",
-    "password_required_error": "Password is required",
     "login": "Login",
     "logout": "Logout",
     "welcome": "Welcome to <0>smart</0> intercoms",

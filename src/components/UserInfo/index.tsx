@@ -18,7 +18,7 @@ export interface ProfileFormInputs {
 }
 
 const profileSchema = yup.object().shape({
-  password: yup.string().required('password_required_error').min(8, 'password_min_length'),
+  password: yup.string().required('required_password').min(8, 'password_min_length'),
 });
 
 interface Props {
