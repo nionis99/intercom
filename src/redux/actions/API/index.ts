@@ -30,7 +30,7 @@ const handleError = (error: AxiosError) => {
     if (status === 401) removeAccessAndRedirect('/login');
     else if (status >= 500) window.location.href = '/server';
     else toast.error(errorMessage || 'Error!');
-  } else removeAccessAndRedirect('/server');
+  } else toast.error("Couldn't reach the server");
 };
 
 const removeAccessAndRedirect = (redirectUrl: string) => {
