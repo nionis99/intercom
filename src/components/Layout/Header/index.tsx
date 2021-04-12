@@ -4,15 +4,16 @@ import { useAppState } from 'contexts';
 import { useTranslation } from 'react-i18next';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+
+import { useUserState } from 'contexts/User';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
-import { logout } from 'redux/actions/Authorization';
-import { routesData } from 'routes';
 import NavLinkItem from './NavLinkItem';
 import styles from './header.module.scss';
 
 const LayoutHeader = () => {
   const { t } = useTranslation();
-  const { setAccessToken } = useAppState();
+  const { routesData } = useAppState();
+  const { onLogout } = useUserState();
 
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -34,7 +35,7 @@ const LayoutHeader = () => {
           <Navbar.Text className="d-flex justify-content-center align-items-center">
             <div
               className="d-flex d-md-none align-items-center justify-content-center cursor-pointer ml-md-3 text-danger"
-              onClick={() => logout(setAccessToken)}
+              onClick={onLogout}
             >
               {t('logout')}
             </div>

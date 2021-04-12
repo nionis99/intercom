@@ -10,16 +10,16 @@ function useLocalStorage(key: string, initialValue: string | null) {
     }
   });
 
-  const setValue = (value: string) => {
+  const setValue = (value: string | null) => {
     try {
-      window.localStorage.setItem(key, value);
+      window.localStorage.setItem(key, value as string);
       setTimeout(() => setStoredValue(value));
     } catch (error) {
       console.log(error);
     }
   };
 
-  return [storedValue, setValue];
+  return [storedValue, setValue] as const;
 }
 
 export default useLocalStorage;

@@ -8,25 +8,17 @@ import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import { getMembers } from 'redux/actions/Members';
 import LayoutContainer from 'components/Layout';
-import MembersListTable from 'components/Tables/MembersTable';
-import { useAppState } from 'contexts';
 
-const MembersPage = () => {
+const UsersPage = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { isAdmin } = useAppState();
   const { selectedFlatId } = useUserState();
   const [isOpenCreateMemberModal, setIsOpenCreateMemberModal] = useState(false);
-  const { membersLoading, membersData } = useStateSelector((state) => state.members);
-
-  useEffect(() => {
-    dispatch(getMembers(selectedFlatId));
-  }, [dispatch, selectedFlatId]);
 
   return (
     <LayoutContainer>
       <Card.Header className="d-flex align-items-center font-weight-bold">
-        <span className="mr-4">{t(isAdmin ? 'other_members' : 'members')}</span>
+        <span className="mr-4">{t('users')}</span>
         <span
           className="d-flex align-items-center ml-auto cursor-pointer font-weight-normal overflow-auto"
           onClick={() => setIsOpenCreateMemberModal(true)}
@@ -35,16 +27,9 @@ const MembersPage = () => {
           <small className="text-truncate">{t('add_new_user')}</small>
         </span>
       </Card.Header>
-      <Card.Body className="h-100 overflow-auto">
-        <MembersListTable
-          loading={membersLoading}
-          membersData={membersData}
-          setIsOpenCreateMemberModal={setIsOpenCreateMemberModal}
-          isOpenCreateMemberModal={isOpenCreateMemberModal}
-        />
-      </Card.Body>
+      <Card.Body className="h-100 overflow-auto"></Card.Body>
     </LayoutContainer>
   );
 };
 
-export default MembersPage;
+export default UsersPage;

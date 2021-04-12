@@ -14,7 +14,7 @@ export interface LoginFormInputs {
 
 const loginSchema = yup.object().shape({
   login: yup.string().required('name_required_error'),
-  password: yup.string().required('required_password').min(8, 'password_min_length'),
+  password: yup.string().required('required_password'),
 });
 
 interface Props {

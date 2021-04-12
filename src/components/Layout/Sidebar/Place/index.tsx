@@ -32,6 +32,8 @@ const OwnerPlaces = () => {
 
   if (placeLoading) return <Loading />;
 
+  if (placeData.length === 1) return null;
+
   return (
     <Form className="d-flex flex-column justify-content-center rounded">
       <Form.Group>

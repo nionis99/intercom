@@ -1,10 +1,11 @@
 import React, { createContext, SetStateAction, useContext, useEffect } from 'react';
+import { AxiosResponse } from 'axios';
 import { useDispatch } from 'react-redux';
 
 import { useAppState } from 'contexts';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import { getPlaces } from 'redux/actions/Place';
-import { getUser } from 'redux/actions/Authorization';
+import { getUser, logout } from 'redux/actions/Authorization';
 import useLocalStorage from 'hooks/useLocalStorage';
 import LoadingView from 'components/Loading';
 import { Maybe } from 'types';
@@ -16,6 +17,7 @@ interface UserStateContextType {
   selectedFlat: Maybe<string>;
   selectedFlatId: Maybe<string>;
 
+  onLogout: () => Promise<AxiosResponse>;
   setSelectedProject: React.Dispatch<SetStateAction<Maybe<string>>>;
   setSelectedAddress: React.Dispatch<SetStateAction<Maybe<string>>>;
   setSelectedHouse: React.Dispatch<SetStateAction<Maybe<string>>>;
@@ -27,7 +29,7 @@ export const UserStateContext = createContext<UserStateContextType | null>(null)
 
 const UserProvider = ({ children }: { children: JSX.Element }) => {
   const dispatch = useDispatch();
-  const { accessToken, user, setUser } = useAppState();
+  const { accessToken, user, setUser, setAccessToken } = useAppState();
   const { authorizationLoading } = useStateSelector((state) => state.auth);
   const { placeLoading } = useStateSelector((state) => state.place);
   const [selectedProject, setSelectedProject] = useLocalStorage('project', '');
@@ -35,6 +37,16 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
   const [selectedHouse, setSelectedHouse] = useLocalStorage('house', null);
   const [selectedFlat, setSelectedFlat] = useLocalStorage('flat', null);
   const [selectedFlatId, setSelectedFlatId] = useLocalStorage('flatId', null);
+
+  const onLogout = () => {
+    setSelectedProject(null);
+    setSelectedAddress(null);
+    setSelectedHouse(null);
+    setSelectedFlat(null);
+    setSelectedFlatId(null);
+    setUser(null);
+    return logout(setAccessToken);
+  };
 
   useEffect(() => {
     if (accessToken) dispatch(getUser(setUser));
@@ -60,6 +72,7 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
     selectedHouse,
     selectedFlat,
     selectedFlatId,
+    onLogout,
     setSelectedProject,
     setSelectedAddress,
     setSelectedHouse,

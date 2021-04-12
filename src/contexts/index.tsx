@@ -10,6 +10,7 @@ interface StateContextType {
   accessToken: string;
   isAuthenticated: boolean;
   isAdmin: boolean;
+  routesData: string[];
 
   setUser: React.Dispatch<SetStateAction<User | null>>;
   setAccessToken: React.Dispatch<SetStateAction<string | null>>;
@@ -29,6 +30,7 @@ export default function AppStateProvider({ children }: Props) {
 
   const isAuthenticated = !!accessToken && !!user;
   const isAdmin = user?.role === UserRoleEnum.ADMIN;
+  const routesData = isAdmin ? ['profile', 'users', 'members', 'access'] : ['profile', 'members', 'access'];
 
   const contextValue = {
     isAuthenticated,
@@ -36,6 +38,7 @@ export default function AppStateProvider({ children }: Props) {
     setAccessToken,
     user,
     isAdmin,
+    routesData,
     setUser,
   } as StateContextType;
 
