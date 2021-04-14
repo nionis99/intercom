@@ -13,7 +13,7 @@ const apiAction = async <D, L, S>(
   url: string,
   method: ApiMethodEnums,
   dispatchSuccess: (response: AxiosResponse) => S,
-  dispatchLoading: () => L,
+  dispatchLoading?: () => L,
   data?: D
 ) => {
   const headers = authHeader();

@@ -11,7 +11,7 @@ const NotFoundPage = () => {
       <h1 className="text-primary display-1">404</h1>
       <h4 className="mb-3">{t('page_not_found')}</h4>
       <p className="text-center w-50">
-        <p>{t('nothing_found_message')}</p>
+        <h6>{t('nothing_found_message')}</h6>
         <Link to="/">{t('return_to_homepage')}</Link>
       </p>
     </Container>

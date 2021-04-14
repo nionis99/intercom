@@ -51,7 +51,7 @@ const MemberForm = ({ editingMember, onSubmit, handleClose, loading }: Props) =>
     mode: 'all',
     resolver: yupResolver(memberSchema),
     defaultValues: {
-      is_active: editingMember?.is_active || true,
+      is_active: editingMember ? editingMember?.is_active : true,
       name: editingMember?.name || t(DEFAULT_MEMBER_NAME),
       email: editingMember?.email || '',
       phone: editingMember?.phone || '',

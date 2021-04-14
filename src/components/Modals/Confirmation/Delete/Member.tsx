@@ -11,9 +11,10 @@ interface Props {
   deletingMemberId: number | null;
   confirmText: string;
   handleClose: () => void;
+  isAdminRoute: boolean;
 }
 
-const DeleteMemberConfirmation = ({ title, deletingMemberId, confirmText, handleClose }: Props) => {
+const DeleteMemberConfirmation = ({ title, deletingMemberId, confirmText, handleClose, isAdminRoute }: Props) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { deleteLoading } = useStateSelector((state) => state.members);
@@ -22,7 +23,7 @@ const DeleteMemberConfirmation = ({ title, deletingMemberId, confirmText, handle
   if (!deletingMemberId) return null;
 
   const onSubmitClick = async () => {
-    await dispatch(deleteMember(deletingMemberId, responseText));
+    await dispatch(deleteMember(isAdminRoute, deletingMemberId, responseText));
     handleClose();
   };
 

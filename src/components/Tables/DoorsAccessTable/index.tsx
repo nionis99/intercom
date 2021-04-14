@@ -2,6 +2,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import { useTranslation } from 'react-i18next';
 
+import { useAppState } from 'contexts';
 import EmptyDataView from 'components/EmptyDataView';
 import LoadingView from 'components/Loading';
 import DoorItem from './DoorItem';
@@ -14,6 +15,7 @@ interface Props {
 
 const DoorsAccessListTable = ({ loading, doorsData }: Props) => {
   const { t } = useTranslation();
+  const { isAdmin } = useAppState();
 
   if (loading) return <LoadingView />;
 
@@ -27,11 +29,12 @@ const DoorsAccessListTable = ({ loading, doorsData }: Props) => {
           <th className="font-weight-normal">{t('type')}</th>
           <th className="font-weight-normal">{t('project')}</th>
           <th className="font-weight-normal">{t('note')}</th>
+          {isAdmin && <th className="font-weight-normal">{t('actions')}</th>}
         </tr>
       </thead>
       <tbody>
         {doorsData.map((door, index) => (
-          <DoorItem key={index} door={door} />
+          <DoorItem key={index} door={door} isAdmin={isAdmin} />
         ))}
       </tbody>
     </Table>

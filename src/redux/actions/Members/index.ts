@@ -15,7 +15,7 @@ import {
 } from 'redux/types/MembersTypes';
 import apiAction, { ApiMethodEnums } from 'redux/actions/API';
 import { MemberFormInputs } from 'components/Forms/MemberForm';
-import { GET_MEMBERS, MEMBERS } from 'Constants';
+import { ADMIN_MEMBERS, GET_ADMIN_MEMBERS, GET_MEMBERS, MEMBERS } from 'Constants';
 import Member from 'types/Member';
 
 const getMembersLoading = (loading: boolean): MembersActionTypes => ({
@@ -58,14 +58,21 @@ const deleteMemberData = (memberId: number): MembersActionTypes => ({
   id: memberId,
 });
 
-export const getMembers = (flatId: string | null) => (dispatch: Dispatch) => {
+export const getMembers = (flatId: string | null, isAdmin: boolean) => (dispatch: Dispatch) => {
   dispatch(getMembersLoading(true));
   const dispatchSuccess = (response: AxiosResponse) => dispatch(setMembersData(response.data));
   const dispatchLoading = () => dispatch(getMembersLoading(false));
-  return apiAction(`${GET_MEMBERS}?flat_id=${flatId}`, ApiMethodEnums.GET, dispatchSuccess, dispatchLoading);
+  return apiAction(
+    `${isAdmin ? GET_ADMIN_MEMBERS : GET_MEMBERS}?flat_id=${flatId}`,
+    ApiMethodEnums.GET,
+    dispatchSuccess,
+    dispatchLoading
+  );
 };
 
-export const createMember = (data: MemberFormInputs, responseText: string) => (dispatch: Dispatch) => {
+export const createMember = (isAdmin: boolean, data: MemberFormInputs, responseText: string) => (
+  dispatch: Dispatch
+) => {
   dispatch(createMemberLoading(true));
 
   const dispatchSuccess = (response: AxiosResponse) => {
@@ -74,10 +81,10 @@ export const createMember = (data: MemberFormInputs, responseText: string) => (d
   };
 
   const dispatchLoading = () => dispatch(createMemberLoading(false));
-  return apiAction(MEMBERS, ApiMethodEnums.POST, dispatchSuccess, dispatchLoading, data);
+  return apiAction(isAdmin ? ADMIN_MEMBERS : MEMBERS, ApiMethodEnums.POST, dispatchSuccess, dispatchLoading, data);
 };
 
-export const updateMember = (data: MemberFormInputs, memberId: number, responseText: string) => (
+export const updateMember = (isAdmin: boolean, data: MemberFormInputs, memberId: number, responseText: string) => (
   dispatch: Dispatch
 ) => {
   dispatch(updateMemberLoading(true));
@@ -88,10 +95,16 @@ export const updateMember = (data: MemberFormInputs, memberId: number, responseT
   };
 
   const dispatchLoading = () => dispatch(updateMemberLoading(false));
-  return apiAction(`${MEMBERS}/${memberId}`, ApiMethodEnums.PUT, dispatchSuccess, dispatchLoading, data);
+  return apiAction(
+    `${isAdmin ? ADMIN_MEMBERS : MEMBERS}/${memberId}`,
+    ApiMethodEnums.PUT,
+    dispatchSuccess,
+    dispatchLoading,
+    data
+  );
 };
 
-export const deleteMember = (memberId: number, responseText: string) => (dispatch: Dispatch) => {
+export const deleteMember = (isAdmin: boolean, memberId: number, responseText: string) => (dispatch: Dispatch) => {
   dispatch(deleteMemberLoading(true));
 
   const dispatchSuccess = () => {
@@ -100,5 +113,10 @@ export const deleteMember = (memberId: number, responseText: string) => (dispatc
   };
 
   const dispatchLoading = () => dispatch(deleteMemberLoading(false));
-  return apiAction(`${MEMBERS}/${memberId}`, ApiMethodEnums.DELETE, dispatchSuccess, dispatchLoading);
+  return apiAction(
+    `${isAdmin ? ADMIN_MEMBERS : MEMBERS}/${memberId}`,
+    ApiMethodEnums.DELETE,
+    dispatchSuccess,
+    dispatchLoading
+  );
 };

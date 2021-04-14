@@ -4,17 +4,17 @@ import { toast } from 'react-toastify';
 
 import apiAction, { ApiMethodEnums } from 'redux/actions/API';
 import {
-  MemberActionTypes,
   MEMBER_CONTACTS_DATA,
   MEMBER_CONTACTS_LOADING,
   MEMBER_DATA,
   MEMBER_LOADING,
   MEMBER_PIN_DATA,
   MEMBER_PIN_LOADING,
+  MemberActionTypes,
 } from 'redux/types/MemberTypes';
 import { ChangePinInput } from 'components/Forms/ChangePinForm';
 import { ChangeContactsInputs } from 'components/Forms/ContactsForm';
-import { MEMBERS } from 'Constants';
+import { ADMIN_MEMBERS, MEMBERS } from 'Constants';
 import Member from 'types/Member';
 
 const getMemberLoading = (loading: boolean): MemberActionTypes => ({
@@ -47,11 +47,16 @@ const editMemberPinData = (memberPin: ChangePinInput): MemberActionTypes => ({
   memberPin,
 });
 
-export const getMember = (memberId: string) => (dispatch: Dispatch) => {
+export const getMember = (isAdmin: boolean, memberId: string) => (dispatch: Dispatch) => {
   dispatch(getMemberLoading(true));
   const dispatchSuccess = (response: AxiosResponse) => dispatch(setMemberData(response.data));
   const dispatchLoading = () => dispatch(getMemberLoading(false));
-  return apiAction(`${MEMBERS}/${memberId}`, ApiMethodEnums.GET, dispatchSuccess, dispatchLoading);
+  return apiAction(
+    `${isAdmin ? ADMIN_MEMBERS : MEMBERS}/${memberId}`,
+    ApiMethodEnums.GET,
+    dispatchSuccess,
+    dispatchLoading
+  );
 };
 
 export const updateMemberContacts = (data: ChangeContactsInputs, memberId: number, responseText: string) => (

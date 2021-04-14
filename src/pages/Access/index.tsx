@@ -8,16 +8,18 @@ import { useStateSelector } from 'hooks/useReduxStateSelector';
 import DoorsAccessListTable from 'components/Tables/DoorsAccessTable';
 import LayoutContainer from 'components/Layout';
 import { getDoors } from 'redux/actions/Door';
+import { useAppState } from 'contexts';
 
 const AccessScenariosPage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { isAdmin } = useAppState();
   const { selectedProject } = useUserState();
   const { doorsLoading, doorsData } = useStateSelector((state) => state.doors);
 
   useEffect(() => {
-    dispatch(getDoors(selectedProject || ''));
-  }, [dispatch, selectedProject]);
+    dispatch(getDoors(selectedProject || '', isAdmin));
+  }, [dispatch, selectedProject, isAdmin]);
 
   return (
     <LayoutContainer>

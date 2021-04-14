@@ -1,33 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { PersonAdd } from 'styled-icons/material-rounded';
+import { useDispatch } from 'react-redux';
 import Card from 'react-bootstrap/Card';
 
 import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
-import { getMembers } from 'redux/actions/Members';
+import { getFlatUsers } from 'redux/actions/FlatUsers';
+import FlatUsersListTable from 'components/Tables/UsersTable';
 import LayoutContainer from 'components/Layout';
+import EditFlatUserModal from 'components/Modals/EditFlatUser';
+import FlatUser from 'types/FlatUser';
 
 const UsersPage = () => {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const { selectedFlatId } = useUserState();
-  const [isOpenCreateMemberModal, setIsOpenCreateMemberModal] = useState(false);
+  const { flatUsersData, flatUsersLoading } = useStateSelector((state) => state.flatUsers);
+  const [editingFlatUser, setEditingFlatUser] = useState<FlatUser | null>(null);
+
+  useEffect(() => {
+    dispatch(getFlatUsers(selectedFlatId || ''));
+  }, [dispatch, selectedFlatId]);
 
   return (
     <LayoutContainer>
       <Card.Header className="d-flex align-items-center font-weight-bold">
         <span className="mr-4">{t('users')}</span>
-        <span
-          className="d-flex align-items-center ml-auto cursor-pointer font-weight-normal overflow-auto"
-          onClick={() => setIsOpenCreateMemberModal(true)}
-        >
-          <PersonAdd size={22} className="text-primary mr-2" />
-          <small className="text-truncate">{t('add_new_user')}</small>
-        </span>
       </Card.Header>
-      <Card.Body className="h-100 overflow-auto"></Card.Body>
+      <Card.Body className="h-100 overflow-auto">
+        <FlatUsersListTable
+          loading={flatUsersLoading}
+          flatUsers={flatUsersData}
+          setEditingFlatUser={setEditingFlatUser}
+        />
+      </Card.Body>
+      {editingFlatUser && (
+        <EditFlatUserModal
+          show={!!editingFlatUser}
+          editingFlatUser={editingFlatUser}
+          handleClose={() => setEditingFlatUser(null)}
+        />
+      )}
     </LayoutContainer>
   );
 };

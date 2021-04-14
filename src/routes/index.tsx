@@ -9,7 +9,7 @@ import LoginPage from 'pages/Login';
 import DashboardPage from 'pages/Dashboard';
 import ProfilePage from 'pages/Profile';
 import MembersPage from 'pages/Members';
-import MemberPage from 'pages/Member';
+import MemberPage from 'pages/Members/Member';
 import AccessScenariosPage from 'pages/Access';
 import UsersPage from 'pages/Users';
 import FakeError from 'pages/FakeError';
@@ -35,14 +35,24 @@ const Routes = () => {
             <ProfilePage />
           </AuthorizedRoute>
           <AuthorizedRoute exact path="/members">
-            <MembersPage />
+            <MembersPage isAdminRoute={false} />
           </AuthorizedRoute>
           <AuthorizedRoute exact path="/members/:memberId">
-            <MemberPage />
+            <MemberPage isAdminRoute={false} />
           </AuthorizedRoute>
           {isAdmin && (
             <AuthorizedRoute exact path="/users">
               <UsersPage />
+            </AuthorizedRoute>
+          )}
+          {isAdmin && (
+            <AuthorizedRoute exact path="/users/:userId">
+              <MembersPage isAdminRoute={true} />
+            </AuthorizedRoute>
+          )}
+          {isAdmin && (
+            <AuthorizedRoute exact path="/users/:userId/member/:memberId">
+              <MemberPage isAdminRoute={true} />
             </AuthorizedRoute>
           )}
           <UnauthorizedRoute path="/login">

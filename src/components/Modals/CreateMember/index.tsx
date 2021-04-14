@@ -11,9 +11,10 @@ import MemberForm, { MemberFormInputs } from 'components/Forms/MemberForm';
 interface Props {
   show: boolean;
   handleClose: () => void;
+  isAdminRoute: boolean;
 }
 
-const CreateMemberModal = ({ show, handleClose }: Props) => {
+const CreateMemberModal = ({ show, handleClose, isAdminRoute }: Props) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { selectedFlatId } = useUserState();
@@ -22,7 +23,7 @@ const CreateMemberModal = ({ show, handleClose }: Props) => {
   const responseText = t('member_created');
 
   const onSubmit = async (data: MemberFormInputs) => {
-    await dispatch(createMember({ ...data, flat_id: parseInt(selectedFlatId || '') }, responseText));
+    await dispatch(createMember(isAdminRoute, { ...data, flat_id: parseInt(selectedFlatId || '') }, responseText));
     handleClose();
   };
 

@@ -1,11 +1,23 @@
 import { useCallback, useEffect, useMemo } from 'react';
 
+import { useAppState } from 'contexts';
 import { useUserState } from 'contexts/User';
-import Place from 'types/Place';
+import { useStateSelector } from 'hooks/useReduxStateSelector';
+import usePathname from 'hooks/usePathname';
 
-export const usePlaceValues = (placeData: Place[]) => {
+export const usePlaceValues = () => {
+  const pathname = usePathname();
+  const { isAdmin } = useAppState();
+  const { ownerPlaceData } = useStateSelector((state) => state.place);
+  const { adminPlaceData } = useStateSelector((state) => state.place);
+  const isAdminApi = pathname.includes('/users') || pathname === '/access';
+  const placeData = isAdmin && isAdminApi ? adminPlaceData : ownerPlaceData;
+
+  const isRefetch = isAdmin && (pathname === '/members' || pathname === '/users');
+
   const {
     selectedProject,
+    selectedFlatId,
     setSelectedProject,
     setSelectedAddress,
     setSelectedHouse,
@@ -26,27 +38,27 @@ export const usePlaceValues = (placeData: Place[]) => {
   );
 
   const uniqueFlatNumbers = useMemo(
-    () => [...new Set(placeData.flatMap((place) => (place.project === selectedProject ? [place.flat_no] : [])))],
+    () => [
+      ...new Set(
+        placeData.flatMap((place) =>
+          place.project === selectedProject && place.flat_no !== '0' ? [place.flat_no] : []
+        )
+      ),
+    ],
     [placeData, selectedProject]
   );
 
   useEffect(() => {
-    if (!selectedProject && placeData.length !== 0) {
+    console.log(selectedFlatId);
+    if ((placeData.length !== 0 && !selectedProject) || isRefetch) {
       setSelectedProject(placeData[0].project);
       setSelectedAddress(placeData[0].street);
       setSelectedHouse(placeData[0].house_no);
       setSelectedFlat(placeData[0].flat_no);
       setSelectedFlatId(placeData[0].id.toString());
     }
-  }, [
-    placeData,
-    selectedProject,
-    setSelectedAddress,
-    setSelectedFlat,
-    setSelectedFlatId,
-    setSelectedHouse,
-    setSelectedProject,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [placeData]);
 
   const changeProject = useCallback(
     (value: string) => {
@@ -73,7 +85,9 @@ export const usePlaceValues = (placeData: Place[]) => {
     (value: string) => {
       setSelectedHouse(value);
       setSelectedFlat(placeData.find((place) => place.house_no === value)?.flat_no || '');
-      setSelectedFlatId(placeData.find((place) => place.house_no === value)?.id.toString() || '');
+      setSelectedFlatId(
+        placeData.find((place) => place.house_no === value && place.flat_no !== '0')?.id.toString() || ''
+      );
     },
     [placeData, setSelectedFlat, setSelectedFlatId, setSelectedHouse]
   );
@@ -89,6 +103,7 @@ export const usePlaceValues = (placeData: Place[]) => {
   );
 
   return {
+    placeData,
     uniqueProjects,
     uniqueStreets,
     uniqueHouseNumbers,

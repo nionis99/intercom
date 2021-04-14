@@ -6,6 +6,7 @@
     "username": "Username",
     "password": "Password",
     "name_required_error": "Username is required",
+    "email_format_error": "Email is required",
     "login": "Login",
     "logout": "Logout",
     "welcome": "Welcome to <0>smart</0> intercoms",
@@ -55,6 +56,7 @@
     "member_deleted": "User was deleted!",
     "member_created": "User was created!",
     "member_updated": "User data was updated!",
+    "flat_user_updated": "Aparment user data was updated!",
     "delete": "Delete",
     "cancel": "Cancel",
     "no_equipments": "No equipment",
@@ -99,6 +101,7 @@
     "password_changed": "Password changed!",
     "internal_server_error": "Internal server error",
     "technical_problem_message": "Our servers are facing a temporary technical problem. <p>We regret the inconvenience causes.</p><1>Please try again after some time</1>",
-    "add_new_user": "Add new user"
+    "add_new_user": "Add new user",
+    "role": "Role"
   }
 }

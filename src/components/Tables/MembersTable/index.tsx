@@ -2,9 +2,7 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Table from 'react-bootstrap/Table';
 
-import { useAppState } from 'contexts';
 import LoadingView from 'components/Loading';
-import EmptyDataView from 'components/EmptyDataView';
 import DeleteMemberConfirmation from 'components/Modals/Confirmation/Delete/Member';
 import CreateMemberModal from 'components/Modals/CreateMember';
 import EditMemberModal from 'components/Modals/EditMember';
@@ -16,23 +14,29 @@ interface Props {
   membersData: Member[];
   isOpenCreateMemberModal: boolean;
   setIsOpenCreateMemberModal: Dispatch<SetStateAction<boolean>>;
+  isAdminRoute: boolean;
 }
 
-const MembersListTable = ({ loading, membersData, isOpenCreateMemberModal, setIsOpenCreateMemberModal }: Props) => {
+const MembersListTable = ({
+  loading,
+  membersData,
+  isOpenCreateMemberModal,
+  setIsOpenCreateMemberModal,
+  isAdminRoute,
+}: Props) => {
   const { t } = useTranslation();
-  const { isAdmin } = useAppState();
   const [deletingMemberId, setDeletingMemberId] = useState<number | null>(null);
   const [editingMember, setEditingMember] = useState<Member | null>(null);
 
   if (loading) return <LoadingView />;
 
-  if (membersData.length === 0) {
-    return <EmptyDataView text={t('no_members')} centered />;
-  }
-
   return (
     <div className="overflow-auto">
-      <CreateMemberModal show={isOpenCreateMemberModal} handleClose={() => setIsOpenCreateMemberModal(false)} />
+      <CreateMemberModal
+        show={isOpenCreateMemberModal}
+        handleClose={() => setIsOpenCreateMemberModal(false)}
+        isAdminRoute={isAdminRoute}
+      />
       <Table borderless hover responsive="sm">
         <thead>
           <tr className="text-center">
@@ -40,7 +44,7 @@ const MembersListTable = ({ loading, membersData, isOpenCreateMemberModal, setIs
             <th className="font-weight-normal">{t('name')}</th>
             <th className="font-weight-normal">{t('email')}</th>
             <th className="font-weight-normal">{t('phone')}</th>
-            {isAdmin && <th className="font-weight-normal">{t('is_owner')}</th>}
+            {isAdminRoute && <th className="font-weight-normal">{t('is_owner')}</th>}
             <th className="font-weight-normal">{t('pin')}</th>
             <th className="font-weight-normal">{t('note')}</th>
             <th className="font-weight-normal">{t('actions')}</th>
@@ -53,7 +57,7 @@ const MembersListTable = ({ loading, membersData, isOpenCreateMemberModal, setIs
               member={member}
               setDeletingMemberId={setDeletingMemberId}
               setEditingMember={setEditingMember}
-              isAdmin={isAdmin}
+              isAdminRoute={isAdminRoute}
             />
           ))}
         </tbody>
@@ -63,6 +67,7 @@ const MembersListTable = ({ loading, membersData, isOpenCreateMemberModal, setIs
           show={!!editingMember}
           editingMember={editingMember}
           handleClose={() => setEditingMember(null)}
+          isAdminRoute={isAdminRoute}
         />
       )}
       <DeleteMemberConfirmation
@@ -70,6 +75,7 @@ const MembersListTable = ({ loading, membersData, isOpenCreateMemberModal, setIs
         deletingMemberId={deletingMemberId}
         confirmText={t('delete')}
         handleClose={() => setDeletingMemberId(null)}
+        isAdminRoute={isAdminRoute}
       />
     </div>
   );

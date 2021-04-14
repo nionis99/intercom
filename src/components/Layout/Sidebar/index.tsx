@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 
 import { useAppState } from 'contexts';
 import { useUserState } from 'contexts/User';
+import { useStateSelector } from 'hooks/useReduxStateSelector';
 import OwnerPlaces from './Place';
 import SidebarItem from './SidebarItem';
 import styles from './sidebar.module.scss';
@@ -12,11 +13,12 @@ const Sidebar = () => {
   const { t } = useTranslation();
   const { routesData } = useAppState();
   const { onLogout } = useUserState();
+  const { ownerPlaceData } = useStateSelector((state) => state.place);
 
   return (
     <div className={`${styles.sidebar} border-right border-light-99 bg-light content d-none d-md-flex border`}>
       <Container className="d-flex flex-column align-items-center justify-content-center py-4 border-bottom">
-        <OwnerPlaces />
+        {ownerPlaceData.length > 1 && <OwnerPlaces />}
       </Container>
       <div className="scroll overflow-auto">
         <ul className="list-group list-group-flush h-100">

@@ -2,23 +2,46 @@ import { Dispatch } from 'redux';
 import { AxiosResponse } from 'axios';
 
 import apiAction, { ApiMethodEnums } from 'redux/actions/API';
-import { PLACE_DATA, PLACE_LOADING, PlaceActionTypes } from 'redux/types/PlaceTypes';
-import { GET_OWNER_PLACES } from 'Constants';
+import {
+  ADMIN_PLACE_DATA,
+  ADMIN_PLACE_LOADING,
+  OWNER_PLACE_DATA,
+  OWNER_PLACE_LOADING,
+  PlaceActionTypes,
+} from 'redux/types/PlaceTypes';
+import { GET_ADMIN_PLACES, GET_OWNER_PLACES } from 'Constants';
 import Place from 'types/Place';
 
-const getPlacesLoading = (loading: boolean): PlaceActionTypes => ({
-  type: PLACE_LOADING,
+const getOwnerPlacesLoading = (loading: boolean): PlaceActionTypes => ({
+  type: OWNER_PLACE_LOADING,
   loading,
 });
 
-const setPlacesData = (places: Place[]): PlaceActionTypes => ({
-  type: PLACE_DATA,
-  placeData: places,
+const setOwnerPlacesData = (places: Place[]): PlaceActionTypes => ({
+  type: OWNER_PLACE_DATA,
+  ownerPlaceData: places,
+});
+
+const getAdminPlacesLoading = (loading: boolean): PlaceActionTypes => ({
+  type: ADMIN_PLACE_LOADING,
+  loading,
+});
+
+const setAdminPlacesData = (places: Place[]): PlaceActionTypes => ({
+  type: ADMIN_PLACE_DATA,
+  adminPlaceData: places,
 });
 
 export const getPlaces = () => (dispatch: Dispatch) => {
-  dispatch(getPlacesLoading(true));
-  const dispatchSuccess = (response: AxiosResponse) => dispatch(setPlacesData(response.data));
-  const dispatchLoading = () => dispatch(getPlacesLoading(false));
+  dispatch(getOwnerPlacesLoading(true));
+  const dispatchSuccess = (response: AxiosResponse) => dispatch(setOwnerPlacesData(response.data));
+  const dispatchLoading = () => dispatch(getOwnerPlacesLoading(false));
   return apiAction(GET_OWNER_PLACES, ApiMethodEnums.GET, dispatchSuccess, dispatchLoading);
+};
+
+export const getAdminPlaces = () => (dispatch: Dispatch) => {
+  dispatch(getAdminPlacesLoading(true));
+  const dispatchSuccess = (response: AxiosResponse) => dispatch(setAdminPlacesData(response.data));
+  const dispatchLoading = () => dispatch(getAdminPlacesLoading(false));
+  return apiAction(GET_ADMIN_PLACES, ApiMethodEnums.GET, dispatchSuccess, dispatchLoading);
 };

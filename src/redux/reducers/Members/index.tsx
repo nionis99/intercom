@@ -29,6 +29,7 @@ export const MembersReducer = (state = initialStateUsers, action: MembersActionT
     case MEMBERS_DATA:
       return {
         ...state,
+        membersLoading: false,
         membersData: action.memberData,
       };
     case CREATE_MEMBER_LOADING:

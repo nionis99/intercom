@@ -21,9 +21,15 @@ export const login = (data: LoginFormInputs, setAccessToken: React.Dispatch<Reac
   return apiAction(AUTH_URL, ApiMethodEnums.POST, dispatchSuccess, dispatchLoading, data);
 };
 
-export const logout = (setAccessToken: React.Dispatch<React.SetStateAction<string | null>>) => {
-  const headers = authHeader();
-  return axios.delete(AUTH_URL, { headers }).finally(() => setAccessToken(null));
+export const logout = async (
+  setAccessToken: React.Dispatch<React.SetStateAction<string | null>>,
+  setUser: React.Dispatch<React.SetStateAction<User | null>>
+) => {
+  const headers = await authHeader();
+  return axios.delete(AUTH_URL, { headers }).finally(() => {
+    setAccessToken(null);
+    setTimeout(() => setUser(null));
+  });
 };
 
 export const getUser = (setUser: React.Dispatch<React.SetStateAction<User | null>>) => (dispatch: Dispatch) => {

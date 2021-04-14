@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { FlatUsersReducer } from './FlatUsers';
 import { OwnerPlaceReducer } from './OwnerPlace';
 import { CardTypesReducer } from './CardTypes';
 import { MembersReducer } from './Members';
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   member: MemberReducer,
   cards: CardsReducer,
   cardTypes: CardTypesReducer,
+  flatUsers: FlatUsersReducer,
 });
 
 export default rootReducer;

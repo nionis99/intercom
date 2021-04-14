@@ -6,6 +6,7 @@
     "username": "Vartotojo vardas",
     "password": "Slaptažodis",
     "name_required_error": "Vartotojo vardas privalomas",
+    "email_format_error": "El. paštas privalomas",
     "login": "Prisijungti",
     "logout": "Atsijungti",
     "welcome": "Sveiki atvykę į <0>išmaniųjų</0> domofonų savitarną",
@@ -55,6 +56,7 @@
     "member_deleted": "Vartotojas ištrintas!",
     "member_created": "Vartotojas sukurtas!",
     "member_updated": "Vartotojo duomenys pakeisti!",
+    "flat_user_updated": "Buto vartotojo duomenys pakeisti!",
     "delete": "Ištrinti",
     "cancel": "Atšaukti",
     "no_members": "Nėra vartotojų",
@@ -98,6 +100,7 @@
     "password_changed": "Slaptažodis pakeistas!",
     "internal_server_error": "Vidinė serverio klaida",
     "technical_problem_message": "Mūsų serveriai susiduria su laikina technine problema. <p>Mes apgailestaujame dėl nepatogumų.</p><1>Po kurio laiko bandykite dar kartą</1>",
-    "add_new_user": "Pridėti naują vartotoją"
+    "add_new_user": "Pridėti naują vartotoją",
+    "role": "Rolė"
   }
 }

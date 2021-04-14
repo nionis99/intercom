@@ -13,25 +13,30 @@ import { DEFAULT_MEMBER_NAME } from 'Constants';
 
 interface MemberRouteParams {
   memberId: string;
+  userId: string;
 }
 
-const MemberPage = () => {
+interface Props {
+  isAdminRoute: boolean;
+}
+
+const MemberPage = ({ isAdminRoute }: Props) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { memberId } = useParams<MemberRouteParams>();
+  const { memberId, userId } = useParams<MemberRouteParams>();
   const { memberLoading, memberData } = useStateSelector((state) => state.member);
 
   useEffect(() => {
-    dispatch(getMember(memberId));
-  }, [dispatch, memberId]);
+    dispatch(getMember(isAdminRoute, memberId));
+  }, [dispatch, memberId, isAdminRoute]);
 
   return (
     <LayoutContainer loading={memberLoading}>
       <Card.Header className="d-flex align-items-center font-weight-bold">
-        <Link to="/members">
+        <Link to={isAdminRoute && userId ? `/users/${userId}` : '/members'}>
           <ChevronLeft className="d-flex justify-content-start" size={24} />
         </Link>
-        <span className="d-flex w-100 justify-content-center ">{memberData?.name || t(DEFAULT_MEMBER_NAME)}</span>
+        <span className="d-flex w-100 justify-content-center">{memberData?.name || t(DEFAULT_MEMBER_NAME)}</span>
       </Card.Header>
       <Card.Body className="h-100 overflow-auto">
         <MemberInfo member={memberData} />

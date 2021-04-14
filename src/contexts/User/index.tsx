@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { useAppState } from 'contexts';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
-import { getPlaces } from 'redux/actions/Place';
+import { getAdminPlaces, getPlaces } from 'redux/actions/Place';
 import { getUser, logout } from 'redux/actions/Authorization';
 import useLocalStorage from 'hooks/useLocalStorage';
 import LoadingView from 'components/Loading';
@@ -29,10 +29,10 @@ export const UserStateContext = createContext<UserStateContextType | null>(null)
 
 const UserProvider = ({ children }: { children: JSX.Element }) => {
   const dispatch = useDispatch();
-  const { accessToken, user, setUser, setAccessToken } = useAppState();
+  const { accessToken, user, setUser, setAccessToken, isAdmin } = useAppState();
   const { authorizationLoading } = useStateSelector((state) => state.auth);
-  const { placeLoading } = useStateSelector((state) => state.place);
-  const [selectedProject, setSelectedProject] = useLocalStorage('project', '');
+  const { ownerPlaceLoading } = useStateSelector((state) => state.place);
+  const [selectedProject, setSelectedProject] = useLocalStorage('project', null);
   const [selectedAddress, setSelectedAddress] = useLocalStorage('address', null);
   const [selectedHouse, setSelectedHouse] = useLocalStorage('house', null);
   const [selectedFlat, setSelectedFlat] = useLocalStorage('flat', null);
@@ -44,8 +44,7 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
     setSelectedHouse(null);
     setSelectedFlat(null);
     setSelectedFlatId(null);
-    setUser(null);
-    return logout(setAccessToken);
+    return logout(setAccessToken, setUser);
   };
 
   useEffect(() => {
@@ -53,10 +52,18 @@ const UserProvider = ({ children }: { children: JSX.Element }) => {
   }, [accessToken, dispatch, setUser]);
 
   useEffect(() => {
-    if (accessToken && user) dispatch(getPlaces());
+    if (accessToken && user) {
+      dispatch(getPlaces());
+    }
   }, [accessToken, dispatch, user]);
 
-  if (authorizationLoading || placeLoading) {
+  useEffect(() => {
+    if (accessToken && user && isAdmin) {
+      dispatch(getAdminPlaces());
+    }
+  }, [accessToken, dispatch, isAdmin, user]);
+
+  if (authorizationLoading || ownerPlaceLoading) {
     return (
       <div className="d-flex w-100 vh-100">
         <LoadingView />
