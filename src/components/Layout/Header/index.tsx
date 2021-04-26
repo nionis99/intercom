@@ -2,16 +2,16 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppState } from 'contexts';
 import { useTranslation } from 'react-i18next';
+import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
+import OwnerPlaces from 'components/Layout/Sidebar/Place';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
 import NavLinkItem from './NavLinkItem';
 import styles from './header.module.scss';
-import Container from 'react-bootstrap/Container';
-import OwnerPlaces from '../Sidebar/Place';
 
 const LayoutHeader = () => {
   const { t } = useTranslation();
