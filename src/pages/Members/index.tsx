@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { PersonAdd } from 'styled-icons/material-rounded';
 import Card from 'react-bootstrap/Card';
 
-import { useAppState } from 'contexts';
 import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import { getMembers } from 'redux/actions/Members';
