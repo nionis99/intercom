@@ -6,14 +6,18 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 import { useUserState } from 'contexts/User';
+import { useStateSelector } from 'hooks/useReduxStateSelector';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
 import NavLinkItem from './NavLinkItem';
 import styles from './header.module.scss';
+import Container from 'react-bootstrap/Container';
+import OwnerPlaces from '../Sidebar/Place';
 
 const LayoutHeader = () => {
   const { t } = useTranslation();
   const { routesData } = useAppState();
   const { onLogout } = useUserState();
+  const { ownerPlaceData } = useStateSelector((state) => state.place);
 
   return (
     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
@@ -28,6 +32,11 @@ const LayoutHeader = () => {
         <Nav>
           <Navbar.Text className="d-none d-md-flex justify-content-center align-items-center ml-auto">
             <LanguageSelect />
+          </Navbar.Text>
+          <Navbar.Text>
+            <Container className="d-md-none d-flex flex-column align-items-center justify-content-center py-4 border-bottom">
+              {ownerPlaceData.length > 1 && <OwnerPlaces />}
+            </Container>
           </Navbar.Text>
           {routesData.map((route, index) => (
             <NavLinkItem key={index} route={route} />
