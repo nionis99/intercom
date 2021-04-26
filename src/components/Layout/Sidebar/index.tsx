@@ -25,7 +25,6 @@ const Sidebar = () => {
           {routesData.map((route, index) => (
             <SidebarItem route={route} key={index} />
           ))}
-          <SidebarItem route="error" />
           <li className="list-group-item p-0 border-bottom">
             <div className={`d-flex py-2 px-2 ${styles.link}`}>
               <div className="d-flex justify-content-center w-100 text-danger cursor-pointer" onClick={onLogout}>

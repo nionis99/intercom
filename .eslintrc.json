@@ -21,19 +21,30 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "prettier/prettier": "error",
+    "object-shorthand": 1,
+    "no-shadow": "off",
+    "curly": [
+      "error",
+      "multi-line"
+    ],
+    "no-empty": [
+      "warn",
+      {
+        "allowEmptyCatch": true
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/no-unescaped-entities": "off",
-    "@typescript-eslint/no-unused-vars": "warn",
-    "@typescript-eslint/no-var-requires": "off",
-    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/ban-ts-comment": "error",
     "@typescript-eslint/ban-types": [
       "error",
       {
         "types": {
-          "Object": false,
           "object": false
         },
         "extendDefaults": true

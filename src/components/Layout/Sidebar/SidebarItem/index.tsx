@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import styles from '../sidebar.module.scss';
-import { useAppState } from '../../../../contexts';
+import { useAppState } from 'contexts';
 
 interface Props {
   route: string;

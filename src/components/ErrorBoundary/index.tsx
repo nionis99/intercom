@@ -32,8 +32,9 @@ class ErrorBoundary extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.hasError)
+    if (this.state.hasError) {
       return <UnexpectedError redirectToHome={this.redirectToHome} eventId={this.state.event_id} />;
+    }
 
     return this.props.children;
   }

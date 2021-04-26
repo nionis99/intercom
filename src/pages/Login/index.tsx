@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useAppState } from 'contexts';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import LoginForm, { LoginFormInputs } from 'components/Forms/LoginForm';
-import SocialLoginButtons from 'components/Buttons/SocialLoginButtons';
+// import SocialLoginButtons from 'components/Buttons/SocialLoginButtons';
 import LanguageSelect from 'components/Buttons/LanguagePicker';
 import { login } from 'redux/actions/Authorization';
 
@@ -29,7 +29,7 @@ const LoginPage = () => {
             className={`d-flex flex-column align-items-center justify-content-center w-100 py-4`}
           >
             <LoginForm handleLoginSubmit={handleLoginSubmit} loading={loginLoading} />
-            <SocialLoginButtons />
+            {/*<SocialLoginButtons /> FB / GOOGLE LOGINS */}
           </Col>
         </Row>
       </div>
