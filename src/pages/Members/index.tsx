@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { PersonAdd } from 'styled-icons/material-rounded';
+import { ChevronLeft } from 'styled-icons/boxicons-solid';
 import Card from 'react-bootstrap/Card';
 
 import { useUserState } from 'contexts/User';
 import { useStateSelector } from 'hooks/useReduxStateSelector';
 import { getMembers } from 'redux/actions/Members';
-import LayoutContainer from 'components/Layout';
 import MembersListTable from 'components/Tables/MembersTable';
-import { Link } from 'react-router-dom';
-import { ChevronLeft } from 'styled-icons/boxicons-solid';
+import LayoutContainer from 'components/Layout';
 
 interface Props {
   isAdminRoute: boolean;
