@@ -12,7 +12,7 @@ interface Props {
 const SidebarItem = ({ route }: Props) => {
   const { t } = useTranslation();
   const { isAdmin } = useAppState();
-  const routeName = isAdmin && route === 'members' ? 'other_members' : route;
+  const routeName = isAdmin && route === 'members' ? 'members' : route;
 
   return (
     <li className="list-group-item p-0 border-bottom">

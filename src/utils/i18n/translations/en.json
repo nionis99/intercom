@@ -23,6 +23,7 @@
     "is_active": "Active",
     "is_owner": "Owner",
     "users": "Apartment users",
+    "users_members": "Apartment residents users",
     "user": "User",
     "cards": "Cards",
     "card_created": "Card was added!",

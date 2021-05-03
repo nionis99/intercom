@@ -35,7 +35,7 @@ const MembersPage = ({ isAdminRoute }: Props) => {
             <ChevronLeft className="d-flex justify-content-start" size={24} />
           </Link>
         )}
-        <span className={`${isAdminRoute ? 'ml-4' : ''} mr-4`}>{t(isAdminRoute ? 'other_members' : 'members')}</span>
+        <span className={`${isAdminRoute ? 'ml-4' : ''} mr-4`}>{t(isAdminRoute ? 'users_members' : 'members')}</span>
         <span
           className="d-flex align-items-center ml-auto cursor-pointer font-weight-normal overflow-auto"
           onClick={() => setIsOpenCreateMemberModal(true)}
